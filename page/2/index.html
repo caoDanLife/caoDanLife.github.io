@@ -249,12 +249,15 @@
 
 
   
-    <article id="post-JS中的异步" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JS自动类型转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
+<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+
       
 
       
@@ -292,15 +295,12 @@
 
 
   
-    <article id="post-JS自动类型转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JS中的异步" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
-<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
-<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
-
+        
       
 
       
@@ -384,6 +384,21 @@
     <article id="post-IP协议和子网划分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/08/IP协议和子网划分/">IP协议和子网划分</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/08/IP协议和子网划分/" class="archive-article-date">
+  	<time datetime="2019-08-08T07:57:59.296Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>一般的，可以把 IP 地址分为 A 类，B 类，C 类。A 类地址，网络号占 8 位，最高位固定为 0。又因为 IP 地址中网络号不能全 0 并且 127(01111111)保留本地软件环回测试本主机的进程之间的通信之用，所以，A 类 IP 地址网络号的范围就是 1~126。剩下 3 个字节为主机号，同样的，主机号不能全 0 或全 1，原因是主机号全 0 通常表示网络本身，全 1 表示网络广播。因此，一个 A 类网络中最大主机数 2^24-2 。B 类 IP 地址为 2 个字节的网络号和 2 个字节的主机号组成，其中，网络号的前两位为 10，因此后面的 14 位无论取值如何，都不可能出现网络号全 0 或全 1 的情况，所以，不存在网络总数减 2 的问题，但实际上 B 类网络地址 128.0.0.0 是不指派的。可以指派的 B 类地址的最小网络地址是 128.1.0.0，因此 B 类网络数为 2^14-1 ，一个 B 类网络中最大主机数为 2^16-2 。C 类 IP 地址有 3 个字节的网络号，最前面的 3 位是(110)，还有 21 位可以分配，192.0.0.0 也是不指派的，可以指派的 C 类最小网络地址是 192.0.1.0。因此 C 类可指派的网络总数为 2^21-1 ，每个 C 类地址最大主机数是 2^8-2 。</p>
@@ -431,12 +446,52 @@
 
 
   
-    <article id="post-HTTP=TCP+Port 80" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Git学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/08/Git学习记录/">Git学习记录</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/08/Git学习记录/" class="archive-article-date">
+  	<time datetime="2019-08-08T07:57:59.292Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="Git-基础"><a href="#Git-基础" class="headerlink" title="Git 基础"></a>Git 基础</h2><p>文件的三种状态：</p>
+<ul>
+<li>已修改 (modified)</li>
+<li>已暂存 (staged)</li>
+<li>已提交 (committed)</li>
+</ul>
+<p>git rm:</p>
+<ol>
+<li>删除了一个文件</li>
+<li>将删除的文件纳入到暂存区</li>
+<li>若想恢复被删除的文件，需要进行两个动作：<ul>
+<li>git reset HEAD test2.txt 将待删除的文件从暂存区恢复到工作区</li>
+<li>git checkout – test2.txt 将工作区中的修改丢弃</li>
+</ul>
+</li>
+</ol>
+<p>rm:将 test2.txt 删除，这时，被删除的文件并未纳入暂存区当中。</p>
+<p>git commit –amend -m ‘’:修改上次提交的 comment</p>
+<p>查看提交历史</p>
+<p>git log：</p>
+<ul>
+<li>–pretty=oneline</li>
+<li>-n 仅显示最近的 n 次更新</li>
+</ul>
+<hr>
+
       
 
       
@@ -476,6 +531,21 @@
   
     <article id="post-Chrome扩展程序学习日记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/08/Chrome扩展程序学习日记/">Chrome扩展程序学习日记</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/08/Chrome扩展程序学习日记/" class="archive-article-date">
+  	<time datetime="2019-08-08T07:57:59.288Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       

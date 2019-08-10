@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Shadow&#39;s blog</title>
+  <title>IP协议和子网划分 | Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="IP 地址分类一般的，可以把 IP 地址分为 A 类，B 类，C 类。A 类地址，网络号占 8 位，最高位固定为 0。又因为 IP 地址中网络号不能全 0 并且 127(01111111)保留本地软件环回测试本主机的进程之间的通信之用，所以，A 类 IP 地址网络号的范围就是 1~126。剩下 3 个字节为主机号，同样的，主机号不能全 0 或全 1，原因是主机号全 0 通常表示网络本身，全 1 表">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shadow&#39;s blog">
+<meta property="og:title" content="IP协议和子网划分">
 <meta property="og:url" content="http://yoursite.com/2019/08/08/IP协议和子网划分/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
 <meta property="og:description" content="IP 地址分类一般的，可以把 IP 地址分为 A 类，B 类，C 类。A 类地址，网络号占 8 位，最高位固定为 0。又因为 IP 地址中网络号不能全 0 并且 127(01111111)保留本地软件环回测试本主机的进程之间的通信之用，所以，A 类 IP 地址网络号的范围就是 1~126。剩下 3 个字节为主机号，同样的，主机号不能全 0 或全 1，原因是主机号全 0 通常表示网络本身，全 1 表">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-07T09:56:12.389Z">
+<meta property="og:updated_time" content="2019-08-10T00:18:27.454Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shadow&#39;s blog">
+<meta name="twitter:title" content="IP协议和子网划分">
 <meta name="twitter:description" content="IP 地址分类一般的，可以把 IP 地址分为 A 类，B 类，C 类。A 类地址，网络号占 8 位，最高位固定为 0。又因为 IP 地址中网络号不能全 0 并且 127(01111111)保留本地软件环回测试本主机的进程之间的通信之用，所以，A 类 IP 地址网络号的范围就是 1~126。剩下 3 个字节为主机号，同样的，主机号不能全 0 或全 1，原因是主机号全 0 通常表示网络本身，全 1 表">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
@@ -148,6 +148,21 @@
             <article id="post-IP协议和子网划分" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      IP协议和子网划分
+    </h1>
+  
+
+        
+        <a href="/2019/08/08/IP协议和子网划分/" class="archive-article-date">
+  	<time datetime="2019-08-08T07:57:59.296Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>一般的，可以把 IP 地址分为 A 类，B 类，C 类。A 类地址，网络号占 8 位，最高位固定为 0。又因为 IP 地址中网络号不能全 0 并且 127(01111111)保留本地软件环回测试本主机的进程之间的通信之用，所以，A 类 IP 地址网络号的范围就是 1~126。剩下 3 个字节为主机号，同样的，主机号不能全 0 或全 1，原因是主机号全 0 通常表示网络本身，全 1 表示网络广播。因此，一个 A 类网络中最大主机数 2^24-2 。B 类 IP 地址为 2 个字节的网络号和 2 个字节的主机号组成，其中，网络号的前两位为 10，因此后面的 14 位无论取值如何，都不可能出现网络号全 0 或全 1 的情况，所以，不存在网络总数减 2 的问题，但实际上 B 类网络地址 128.0.0.0 是不指派的。可以指派的 B 类地址的最小网络地址是 128.1.0.0，因此 B 类网络数为 2^14-1 ，一个 B 类网络中最大主机数为 2^16-2 。C 类 IP 地址有 3 个字节的网络号，最前面的 3 位是(110)，还有 21 位可以分配，192.0.0.0 也是不指派的，可以指派的 C 类最小网络地址是 192.0.1.0。因此 C 类可指派的网络总数为 2^21-1 ，每个 C 类地址最大主机数是 2^8-2 。</p>
@@ -247,8 +262,8 @@
     </a>
   
   
-    <a href="/2019/08/08/HTTP=TCP+Port 80/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2019/08/08/Git学习记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git学习记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
