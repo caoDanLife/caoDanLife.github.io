@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="当我们打开浏览器输入一串 url，比如：bilibili，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。得到 B 站的 IP 后，我们要判断它是否和我们在同一个子网中，如果是，就采用 ARP">
+  <meta name="description" content="在浏览器的地址栏输入 www.bilibili.com 到页面显示的过程当我们打开浏览器输入一串 url，比如：bilibili，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。得到 B 站的">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/2019/08/08/互联网协议学习记录(二)/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="当我们打开浏览器输入一串 url，比如：bilibili，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。得到 B 站的 IP 后，我们要判断它是否和我们在同一个子网中，如果是，就采用 ARP">
+<meta property="og:description" content="在浏览器的地址栏输入 www.bilibili.com 到页面显示的过程当我们打开浏览器输入一串 url，比如：bilibili，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。得到 B 站的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-04T13:55:22.240Z">
+<meta property="og:updated_time" content="2019-08-10T00:55:46.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="当我们打开浏览器输入一串 url，比如：bilibili，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。得到 B 站的 IP 后，我们要判断它是否和我们在同一个子网中，如果是，就采用 ARP">
+<meta name="twitter:description" content="在浏览器的地址栏输入 www.bilibili.com 到页面显示的过程当我们打开浏览器输入一串 url，比如：bilibili，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。得到 B 站的">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -150,7 +150,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>当我们打开浏览器输入一串 url，比如：<a href="www.bilibili.com">bilibili</a>，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。<br>得到 B 站的 IP 后，我们要判断它是否和我们在同一个子网中，如果是，就采用 ARP 广播的方式得到它的 MAC 地址，如果不是，我们就必须通过网关转发，这时，接收方的 MAC 地址就是网关的 MAC 地址。<br>经过多个网关的转发，B 站的服务器收到数据包，读出里面的 HTTP 请求，然后做出响应，再用 TCP 协议发回来。<br>本机收到 HTTP 响应以后，就可以将网页显示出来，完成一次网络通信。</p>
+        <h1 id="在浏览器的地址栏输入-www-bilibili-com-到页面显示的过程"><a href="#在浏览器的地址栏输入-www-bilibili-com-到页面显示的过程" class="headerlink" title="在浏览器的地址栏输入 www.bilibili.com 到页面显示的过程"></a>在浏览器的地址栏输入 <a href="http://www.bilibili.com" target="_blank" rel="noopener">www.bilibili.com</a> 到页面显示的过程</h1><p>当我们打开浏览器输入一串 url，比如：<a href="https://www.bilibili.com" target="_blank" rel="noopener">bilibili</a>，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。<br>得到 B 站的 IP 后，我们要判断它是否和我们在同一个子网中，如果是，就采用 ARP 广播的方式得到它的 MAC 地址，如果不是，我们就必须通过网关转发，这时，接收方的 MAC 地址就是网关的 MAC 地址。<br>经过多个网关的转发，B 站的服务器收到数据包，读出里面的 HTTP 请求，然后做出响应，再用 TCP 协议发回来。<br>本机收到 HTTP 响应以后，就可以将网页显示出来，完成一次网络通信。</p>
 
       
 

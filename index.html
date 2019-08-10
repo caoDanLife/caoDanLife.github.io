@@ -151,7 +151,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>当我们打开浏览器输入一串 url，比如：<a href="www.bilibili.com">bilibili</a>，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。<br>得到 B 站的 IP 后，我们要判断它是否和我们在同一个子网中，如果是，就采用 ARP 广播的方式得到它的 MAC 地址，如果不是，我们就必须通过网关转发，这时，接收方的 MAC 地址就是网关的 MAC 地址。<br>经过多个网关的转发，B 站的服务器收到数据包，读出里面的 HTTP 请求，然后做出响应，再用 TCP 协议发回来。<br>本机收到 HTTP 响应以后，就可以将网页显示出来，完成一次网络通信。</p>
+        <h1 id="在浏览器的地址栏输入-www-bilibili-com-到页面显示的过程"><a href="#在浏览器的地址栏输入-www-bilibili-com-到页面显示的过程" class="headerlink" title="在浏览器的地址栏输入 www.bilibili.com 到页面显示的过程"></a>在浏览器的地址栏输入 <a href="http://www.bilibili.com" target="_blank" rel="noopener">www.bilibili.com</a> 到页面显示的过程</h1><p>当我们打开浏览器输入一串 url，比如：<a href="https://www.bilibili.com" target="_blank" rel="noopener">bilibili</a>，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。<br>得到 B 站的 IP 后，我们要判断它是否和我们在同一个子网中，如果是，就采用 ARP 广播的方式得到它的 MAC 地址，如果不是，我们就必须通过网关转发，这时，接收方的 MAC 地址就是网关的 MAC 地址。<br>经过多个网关的转发，B 站的服务器收到数据包，读出里面的 HTTP 请求，然后做出响应，再用 TCP 协议发回来。<br>本机收到 HTTP 响应以后，就可以将网页显示出来，完成一次网络通信。</p>
 
       
 
@@ -195,54 +195,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h1><p>由于历史原因，OSI 模型的过于注重理论性，相反，TCP/IP 模型已经广泛使用，不过，从实质上讲，TCP/IP 只有最上面三层，因为最下面的网络接口层基本上和一般的通信链路在功能上没有多大差别。因此在学习时，采用折中的方法，采用五层协议的体系结构。<br><img src="../assets/blogImg/five_layers.png" alt="五层参考模型"></p>
+        <h1 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h1><p>由于历史原因，OSI 模型的过于注重理论性，相反，TCP/IP 模型已经广泛使用，不过，从实质上讲，TCP/IP 只有最上面三层，因为最下面的网络接口层基本上和一般的通信链路在功能上没有多大差别。因此在学习时，采用折中的方法，采用五层协议的体系结构。<br><img src="/assets/blogImg/five_layers.png" alt="五层参考模型"></p>
 <h1 id="各层职责"><a href="#各层职责" class="headerlink" title="各层职责"></a>各层职责</h1><h2 id="实体层"><a href="#实体层" class="headerlink" title="实体层"></a>实体层</h2><p>电脑要组网，第一件事就是把各台电脑通过一些物理手段连接起来。实体层规定了网络的一些电气特性，负责传输比特流。</p>
 <h2 id="链接层"><a href="#链接层" class="headerlink" title="链接层"></a>链接层</h2><p>为了能够解析收到的比特流，必须在发送和接收时对比特流做一些处理。对于接、收双方来讲，必须规定多少个电信号算一组，每个信号位有何意义。因此，诞生了以太网协议。以太网协议规定一组电信号构成一个数据包，叫做”帧”。每一帧分成两个部分：标头和数据。接收数据时，标头中的一些控制信息使接收端能够知道一个帧从哪个比特开始和从哪个比特结束。<br>标头中的发送者和接收者是如何标识呢？以太网规定，连入网络的所有设备，都必须具有”网卡”接口，数据包必须是从一块网卡，传送到另一块网卡。网卡的地址，就是数据包的发送地址和接收地址，这叫做 MAC 地址。</p>
         
           <a class="article-more-a" href="/2019/08/08/互联网协议学习记录(一)/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-互联网协议HTTP协议学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
         
       
 
@@ -286,147 +243,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="unable-to-locate-packge"><a href="#unable-to-locate-packge" class="headerlink" title="unable to locate packge"></a>unable to locate packge</h1><p>解决方法：<br><br>一开始是选择<a href="https://mirror.tuna.tsinghua.edu.cn/help/debian/" target="_blank" rel="noopener">清华镜像源</a>,来替换官方源。<br><img src="../assets/blogImg/tuna.png" alt>但是，发现清华提供的都是 https 源，无法拉取，后来才有 163 的 http 源才解决了下载包的问题。</p>
+        <h1 id="unable-to-locate-packge"><a href="#unable-to-locate-packge" class="headerlink" title="unable to locate packge"></a>unable to locate packge</h1><p>解决方法：<br><br>一开始是选择<a href="https://mirror.tuna.tsinghua.edu.cn/help/debian/" target="_blank" rel="noopener">清华镜像源</a>,来替换官方源。<br><img src="/assets/blogImg/tuna.png" alt>但是，发现清华提供的都是 https 源，无法拉取，后来才有 163 的 http 源才解决了下载包的问题。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.163.com/debian/ stretch main non-free contrib</span><br><span class="line">deb http://mirrors.163.com/debian/ stretch-updates main non-free contrib</span><br><span class="line">deb http://mirrors.163.com/debian/ stretch-backports main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian/ stretch main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian/ stretch-updates main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian/ stretch-backports main non-free contrib</span><br><span class="line">deb http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2019/08/08/初次安装WSL遇到的坑/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-WSL安装VSCode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><ul>
-<li><a href="#">安装 Linux 子系统</a></li>
-<li><a href="#">配置 可视化环境</a></li>
-<li><a href="#">安装 vscode</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vuejs学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-TexLive和TexStudio安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装-TexLive-套装"><a href="#安装-TexLive-套装" class="headerlink" title="安装 TexLive 套装"></a>安装 TexLive 套装</h1><p>进入清华镜像站，直接搜索 TexLive。<br><img src="..%5Cassets%5CblogImg%5Ctuna_addr.png" alt><br><img src="..%5Cassets%5CblogImg%5Cget_download_addr.png" alt><br><img src="..%5Cassets%5CblogImg%5Cimage_download.png" alt><br>下载完成后，在 win10 环境下，双击进入,得到以下界面。<br><img src="..%5Cassets%5CblogImg%5Cprepare_to_install.png" alt><br>按照上图步骤，打开 installer<br><img src="..%5Cassets%5CblogImg%5Cadvance_option.png" alt><br>接着进入自定义选项，删除不必要的包：如日语包，西班牙语包等等。<br><img src="..%5Cassets%5CblogImg%5Ccustomize.png" alt><br>点击安装进入安装界面<br><img src="..%5Cassets%5CblogImg%5Cinstalling.png" alt><br>安装完毕<br><img src="..%5Cassets%5CblogImg%5Cinstall_finish.png" alt></p>
-        
-          <a class="article-more-a" href="/2019/08/08/TexLive和TexStudio安装/#more">more >></a>
         
       
 
@@ -517,11 +337,14 @@
 
 
   
-    <article id="post-Prototype和this" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-TexLive和TexStudio安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="安装-TexLive-套装"><a href="#安装-TexLive-套装" class="headerlink" title="安装 TexLive 套装"></a>安装 TexLive 套装</h1><p>进入清华镜像站，直接搜索 TexLive。<br><img src="/assets/blogImg/tuna_addr.png" alt><br><img src="/assets/blogImg/get_download_addr.png" alt><br><img src="/assets/blogImg/image_download.png" alt><br>下载完成后，在 win10 环境下，双击进入,得到以下界面。<br><img src="/assets/blogImg/prepare_to_install.png" alt><br>按照上图步骤，打开 installer<br><img src="/assets/blogImg/advance_option.png" alt><br>接着进入自定义选项，删除不必要的包：如日语包，西班牙语包等等。<br><img src="/assets/blogImg/customize.png" alt><br>点击安装进入安装界面<br><img src="/assets/blogImg/installing.png" alt><br>安装完毕<br><img src="/assets/blogImg/install_finish.png" alt></p>
+        
+          <a class="article-more-a" href="/2019/08/08/TexLive和TexStudio安装/#more">more >></a>
         
       
 
@@ -575,6 +398,205 @@
 </ul>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://nqdeng.github.io/7-days-nodejs/" target="_blank" rel="noopener">7-days-notejs</a></p>
 
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LaTex 30分钟入门(翻译)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="30-分钟快速入门-LaTex"><a href="#30-分钟快速入门-LaTex" class="headerlink" title="30 分钟快速入门 LaTex"></a>30 分钟快速入门 LaTex</h1><p><a href="https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes" target="_blank" rel="noopener">官方文档</a></p>
+<p>在这篇文章中，将会初步介绍 LaTex。你不需要任何关于 LaTex 的先验知识，但当你看完这篇文章后，你将能写出你的第一篇 LaTex 文档，并且对 LaTex 提供的一些基本函数有很好的认识。</p>
+<h1 id="什么是-LaTex"><a href="#什么是-LaTex" class="headerlink" title="什么是 LaTex?"></a>什么是 LaTex?</h1><p>LaTex(读作:LAY-tek 或者 LAH-tek)是用于创建专业排版的文档的工具。它是基于 WYSIWYM(what you see is what you mean 所见即所其意)的思想，这就意味着你只需要专注于你的文档内容，然后计算机就会帮你排版。它不像微软的 Micorosoft Word 或是 LibreOffice Writer，让你忽略文本内容去控制排版，它可以让用户输入纯文本然后让 LaTex 去帮你完成剩下的工作。</p>
+<h1 id="为什么要学习-LaTex"><a href="#为什么要学习-LaTex" class="headerlink" title="为什么要学习 LaTex?"></a>为什么要学习 LaTex?</h1><p>LaTex 被广泛用于学术文档、书籍以及许多它形式的的出版物。它不仅仅可以优雅的创建文字排版后的文档，还可以允许用户快速地处理更复杂的排版，比如输入数学公式，创建表格，注明参考书目以及让文档的所有部分拥有一致的布局。由于有大量的开源包，LaTex 的潜力是无限的。这些包允许用户用 LaTex 做更多的事情，比如添加脚标，画图表，创建表格等等。</p>
+<p>人们使用 LaTex 的一个重要原因是它把文档的内容和样式分离开来。这意味你一旦书写你的文档内容，我们就可以轻松改变它的样式。同样地，你可以创建一种样式并且这种样式可以被用于规范许多不同文档的样式。这就意味着科学期刊可以为稿件创建模板。这些模板有事先定义好的布局，这就意味着只需要将内容添加进去即可。事实上，有成百上千中模板可以使用，它的范围包括了从简历到幻灯片。</p>
+<h1 id="书写你的第一篇-LaTex"><a href="#书写你的第一篇-LaTex" class="headerlink" title="书写你的第一篇 LaTex"></a>书写你的第一篇 LaTex</h1>
+        
+          <a class="article-more-a" href="/2019/08/08/LaTex 30分钟入门(翻译)/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-MVC和MVVM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MVC-模式"><a href="#MVC-模式" class="headerlink" title="MVC 模式"></a>MVC 模式</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p><img src="/assets/blogImg/mvc_pattern.png" alt><br>MVC 是三个单词首字母的缩写，它们是 Model(模型)、View(视图)、Controller(控制器)。从结构上看，可以分成三层。</p>
+<ul>
+<li>“视图层(View)”直接面向用户，它是提供给用户的操作界面。</li>
+<li>“数据层(Model)”程序需要操作的信息或数据。</li>
+<li>“控制层(Controller)”，负责读取”视图层”输入的指令，读取”数据层”中的数据，然后进行相应的操作，产生最终结果。</li>
+</ul>
+<h2 id="如何通信"><a href="#如何通信" class="headerlink" title="如何通信"></a>如何通信</h2><p>如上图所所示，View 传指令给 Controller，Controller 完成业务逻辑后，要求 Model 改变状态，Model 将新的数据发送给 View，用户得到反馈。<br>但是，不同平台和不同的语言框架对 MVC 的定义各有不同，并没有一个明确的定义。但大体上，MVC 模式的每个部分是分工明确的。操作数据只存在”数据层”中，显示数据只存在”视图层”中，处理用户的请求和输入只存在于”控制层”中。<br>在 ASP.NET MVC 中，<br><img src="/assets/blogImg/asp_mvc.png" alt><br>“控制层”在接收用户请求时，根据需求的不同，可以选择直接返回一个页面或是将页面传递来的指令传递给”数据层”，”数据层”执行完业务逻辑，将数据返回给”控制层”，”控制层”再将数据返回给”视图层”。
+        
+          <a class="article-more-a" href="/2019/08/08/MVC和MVVM/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JS自动类型转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
+<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-IP协议和子网划分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>一般的，可以把 IP 地址分为 A 类，B 类，C 类。A 类地址，网络号占 8 位，最高位固定为 0。又因为 IP 地址中网络号不能全 0 并且 127(01111111)保留本地软件环回测试本主机的进程之间的通信之用，所以，A 类 IP 地址网络号的范围就是 1~126。剩下 3 个字节为主机号，同样的，主机号不能全 0 或全 1，原因是主机号全 0 通常表示网络本身，全 1 表示网络广播。因此，一个 A 类网络中最大主机数 2^24-2 。B 类 IP 地址为 2 个字节的网络号和 2 个字节的主机号组成，其中，网络号的前两位为 10，因此后面的 14 位无论取值如何，都不可能出现网络号全 0 或全 1 的情况，所以，不存在网络总数减 2 的问题，但实际上 B 类网络地址 128.0.0.0 是不指派的。可以指派的 B 类地址的最小网络地址是 128.1.0.0，因此 B 类网络数为 2^14-1 ，一个 B 类网络中最大主机数为 2^16-2 。C 类 IP 地址有 3 个字节的网络号，最前面的 3 位是(110)，还有 21 位可以分配，192.0.0.0 也是不指派的，可以指派的 C 类最小网络地址是 192.0.1.0。因此 C 类可指派的网络总数为 2^21-1 ，每个 C 类地址最大主机数是 2^8-2 。</p>
+<hr>
+<p>如果将 IP 地址能否被全世界访问作为依据的话，还可以将 IP 地址分为私有 IP 和公有 IP。</p>
+<h2 id="什么是公有-IP"><a href="#什么是公有-IP" class="headerlink" title="什么是公有 IP"></a>什么是公有 IP</h2><p>组建一个企业级网络时，向电信运营商申请一个介入 Internet 的宽带，同时我们还会被分配一个或多个 IP 地址，这些 IP 就是共有 IP。</p>
+<h2 id="什么是私有-IP"><a href="#什么是私有-IP" class="headerlink" title="什么是私有 IP"></a>什么是私有 IP</h2><p>一般家庭内部组建局域网用的 IP，都是私有 IP，如果需要访问公网上的资源，可以使用 NAT 技术，将私网 IP 转换成公网 IP。私有网段，有 A，B，C 三个地址段，分别为：
+        
+          <a class="article-more-a" href="/2019/08/08/IP协议和子网划分/#more">more >></a>
+        
       
 
       

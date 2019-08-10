@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Chrome扩展程序学习日记 | Shadow&#39;s blog</title>
+  <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Chrome 扩展程序的基本组成一个扩展程序就是压缩在一起的一组文件，这些文件可以是 HTML,CSS,JS,图片。其中最小单元为一个 manifest.json 和一个 js 文件。  manifest.json 是扩展的调度中心，用于声名各种资源。 js 文件中定义要执行的操作  Chrome 扩展程序的架构 不可视的 background 页面：分两种，一种是 event-page，出发特定">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Chrome扩展程序学习日记">
+<meta property="og:title" content="Shadow&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/2019/08/08/Chrome扩展程序学习日记/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
 <meta property="og:description" content="Chrome 扩展程序的基本组成一个扩展程序就是压缩在一起的一组文件，这些文件可以是 HTML,CSS,JS,图片。其中最小单元为一个 manifest.json 和一个 js 文件。  manifest.json 是扩展的调度中心，用于声名各种资源。 js 文件中定义要执行的操作  Chrome 扩展程序的架构 不可视的 background 页面：分两种，一种是 event-page，出发特定">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2019/08/08/assets/blogImg/extension_source_code.png">
-<meta property="og:updated_time" content="2019-08-10T00:17:13.829Z">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/extension_source_code.png">
+<meta property="og:updated_time" content="2019-08-10T00:37:54.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chrome扩展程序学习日记">
+<meta name="twitter:title" content="Shadow&#39;s blog">
 <meta name="twitter:description" content="Chrome 扩展程序的基本组成一个扩展程序就是压缩在一起的一组文件，这些文件可以是 HTML,CSS,JS,图片。其中最小单元为一个 manifest.json 和一个 js 文件。  manifest.json 是扩展的调度中心，用于声名各种资源。 js 文件中定义要执行的操作  Chrome 扩展程序的架构 不可视的 background 页面：分两种，一种是 event-page，出发特定">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/08/assets/blogImg/extension_source_code.png">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/extension_source_code.png">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -150,21 +150,6 @@
             <article id="post-Chrome扩展程序学习日记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Chrome扩展程序学习日记
-    </h1>
-  
-
-        
-        <a href="/2019/08/08/Chrome扩展程序学习日记/" class="archive-article-date">
-  	<time datetime="2019-08-08T07:57:59.288Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
-</a>
-        
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Chrome-扩展程序的基本组成"><a href="#Chrome-扩展程序的基本组成" class="headerlink" title="Chrome 扩展程序的基本组成"></a>Chrome 扩展程序的基本组成</h1><p>一个扩展程序就是压缩在一起的一组文件，这些文件可以是 HTML,CSS,JS,图片。其中最小单元为一个 manifest.json 和一个 js 文件。</p>
@@ -177,9 +162,11 @@
 <li>可视页面：最常用的分两种，一种是<code>browser actions</code>扩展程序适用于各种页面。另一种<code>page actions</code>扩展程序只能适用于某一个页面。二者互斥，使用了前者，就不能使用后者。反之亦然。</li>
 <li><code>content-scripts</code>:乍一看，是一组 js 文件，但其实还可以向页面注入<code>css</code>文件。js 文件运行在浏览器当前页面的的上下文，因此可以获取修改 DOM 结构来实现与 web 页面的交互。但对于页面中的 js 文件中声明的变量，是不可访问的。</li>
 <li>Chrome Api：大多数 api 都是异步调用，调用完立即返回，所以需要给 api 提供一个回调函数。</li>
-<li>页面间的数据通信:扩展程序的各个页面都是在同一个进程同一个线程中，通过一定的方法可以实现页面间的通信。</li>
+<li>页面间的数据通信:扩展程序的各个页面都是在同一个进程同一个线程中，通过一定的方法可以实现页面间的通信。<a id="more"></a>
+
+</li>
 </ul>
-<h1 id="查看扩展程序的源代码"><a href="#查看扩展程序的源代码" class="headerlink" title="查看扩展程序的源代码"></a>查看扩展程序的源代码</h1><p>进入<code>C:\Users\用户名\AppData\Local\Google\Chrome\User Data\Default\Extensions\</code>就可以看到安装的扩展程序的 ID 号命名的文件夹，进入即可看到源代码。<br><img src="../assets/blogImg/extension_source_code.png" alt></p>
+<h1 id="查看扩展程序的源代码"><a href="#查看扩展程序的源代码" class="headerlink" title="查看扩展程序的源代码"></a>查看扩展程序的源代码</h1><p>进入<code>C:\Users\用户名\AppData\Local\Google\Chrome\User Data\Default\Extensions\</code>就可以看到安装的扩展程序的 ID 号命名的文件夹，进入即可看到源代码。<br><img src="/assets/blogImg/extension_source_code.png" alt="代码结构"></p>
 
       
 
@@ -252,11 +239,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/08/Git学习记录/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/08/IP协议和子网划分/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Git学习记录
+          (no title)
         
       </div>
     </a>
