@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+  <meta name="description" content="Promise的产生为什么要有Promise123456789101112let user;// fetch all users$.get(&apos;https://api.github.com/users&apos;,data=&amp;gt;&amp;#123;    console.log(&apos;fetched all users&apos;);    user = data[0].login;&amp;#125;);// fetch the f">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/JS自动类型转换/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/19/Promise的由来/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta property="og:description" content="Promise的产生为什么要有Promise123456789101112let user;// fetch all users$.get(&apos;https://api.github.com/users&apos;,data=&amp;gt;&amp;#123;    console.log(&apos;fetched all users&apos;);    user = data[0].login;&amp;#125;);// fetch the f">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-17T01:25:22.199Z">
+<meta property="og:updated_time" content="2019-08-19T11:07:06.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta name="twitter:description" content="Promise的产生为什么要有Promise123456789101112let user;// fetch all users$.get(&apos;https://api.github.com/users&apos;,data=&amp;gt;&amp;#123;    console.log(&apos;fetched all users&apos;);    user = data[0].login;&amp;#125;);// fetch the f">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -145,14 +145,17 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS自动类型转换" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Promise的由来" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
-<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
-<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返值回原始类型的，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+        <h1 id="Promise的产生"><a href="#Promise的产生" class="headerlink" title="Promise的产生"></a>Promise的产生</h1><h2 id="为什么要有Promise"><a href="#为什么要有Promise" class="headerlink" title="为什么要有Promise"></a>为什么要有Promise</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user;</span><br><span class="line"><span class="comment">// fetch all users</span></span><br><span class="line">$.<span class="keyword">get</span>('https://api.github.com/users',data=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fetched all users'</span>);</span><br><span class="line">    user = data[<span class="number">0</span>].login;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// fetch the first user's reppos</span></span><br><span class="line">$.<span class="keyword">get</span>(`https://api.github.com/users/$&#123;user&#125;/repos<span class="string">`,data=&gt;&#123;</span></span><br><span class="line"><span class="string">    console.log('fetch user repos');</span></span><br><span class="line"><span class="string">    console.log(data);</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码原意是想获得第一个用户之后再获得此用户的所有仓库。但是由于这些方法都是异步的，因此不能保证代码的执行顺序。要想第一个方法先执行完再执行第二个方法，可以将第二个方法写在第一个函数的方法体中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fetch all users</span></span><br><span class="line">$.<span class="keyword">get</span>('https://api.github.com/users',data=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fetched all users'</span>);</span><br><span class="line">    user = data[<span class="number">0</span>].login;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// fetch the first user's reppos</span></span><br><span class="line">    $.<span class="keyword">get</span>(`https://api.github.com/users/$&#123;user&#125;/repos<span class="string">`,data=&gt;&#123;</span></span><br><span class="line"><span class="string">        console.log('fetch user repos');</span></span><br><span class="line"><span class="string">        console.log(data);</span></span><br><span class="line"><span class="string">    &#125;);</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+
+<p>同理，若此此时还有第三个方法要在第二个方法执行完的前提下开始执行，那么，就要在第二个方法的回调函数中添加第三个方法，这样代码的嵌套层次就会变多，容易产生回调函数地狱，不利于代码的阅读。因此，就有了Promise来解决这样的问题。</p>
 
       
 
@@ -211,7 +214,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/08/JS自动类型转换/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/19/Promise的由来/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -225,7 +228,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/08/LaTex 30分钟入门(翻译)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/19/使用v-for遇到的问题/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -235,7 +238,7 @@
     </a>
   
   
-    <a href="/2019/08/08/IP协议和子网划分/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/18/runtime-compiler和runtime-only/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>

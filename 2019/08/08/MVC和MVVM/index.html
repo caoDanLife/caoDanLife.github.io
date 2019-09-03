@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MVC 模式是什么MVC 是三个单词首字母的缩写，它们是 Model(模型)、View(视图)、Controller(控制器)。从结构上看，可以分成三层。  “视图层(View)”直接面向用户，它是提供给用户的操作界面。 “数据层(Model)”程序需要操作的信息或数据。 “控制层(Controller)”，负责读取”视图层”输入的指令，读取”数据层”中的数据，然后进行相应的操作，产生最终结果。">
+  <meta name="description" content="MVC 模式和MVVMMVC是什么MVC 是三个单词首字母的缩写，它们是 Model(模型)、View(视图)、Controller(控制器)。从结构上看，可以分成三层。  “视图层(View)”直接面向用户，它是提供给用户的操作界面。 “数据层(Model)”程序需要操作的信息或数据。 “控制层(Controller)”，负责读取”视图层”输入的指令，读取”数据层”中的数据，然后进行相应的操作，">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/2019/08/08/MVC和MVVM/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="MVC 模式是什么MVC 是三个单词首字母的缩写，它们是 Model(模型)、View(视图)、Controller(控制器)。从结构上看，可以分成三层。  “视图层(View)”直接面向用户，它是提供给用户的操作界面。 “数据层(Model)”程序需要操作的信息或数据。 “控制层(Controller)”，负责读取”视图层”输入的指令，读取”数据层”中的数据，然后进行相应的操作，产生最终结果。">
+<meta property="og:description" content="MVC 模式和MVVMMVC是什么MVC 是三个单词首字母的缩写，它们是 Model(模型)、View(视图)、Controller(控制器)。从结构上看，可以分成三层。  “视图层(View)”直接面向用户，它是提供给用户的操作界面。 “数据层(Model)”程序需要操作的信息或数据。 “控制层(Controller)”，负责读取”视图层”输入的指令，读取”数据层”中的数据，然后进行相应的操作，">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/mvc_pattern.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/asp_mvc.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/mvvm_pattern.png">
-<meta property="og:updated_time" content="2019-08-10T00:42:17.208Z">
+<meta property="og:updated_time" content="2019-08-17T03:12:45.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="MVC 模式是什么MVC 是三个单词首字母的缩写，它们是 Model(模型)、View(视图)、Controller(控制器)。从结构上看，可以分成三层。  “视图层(View)”直接面向用户，它是提供给用户的操作界面。 “数据层(Model)”程序需要操作的信息或数据。 “控制层(Controller)”，负责读取”视图层”输入的指令，读取”数据层”中的数据，然后进行相应的操作，产生最终结果。">
+<meta name="twitter:description" content="MVC 模式和MVVMMVC是什么MVC 是三个单词首字母的缩写，它们是 Model(模型)、View(视图)、Controller(控制器)。从结构上看，可以分成三层。  “视图层(View)”直接面向用户，它是提供给用户的操作界面。 “数据层(Model)”程序需要操作的信息或数据。 “控制层(Controller)”，负责读取”视图层”输入的指令，读取”数据层”中的数据，然后进行相应的操作，">
 <meta name="twitter:image" content="http://yoursite.com/assets/blogImg/mvc_pattern.png">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
@@ -154,14 +154,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="MVC-模式"><a href="#MVC-模式" class="headerlink" title="MVC 模式"></a>MVC 模式</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p><img src="/assets/blogImg/mvc_pattern.png" alt><br>MVC 是三个单词首字母的缩写，它们是 Model(模型)、View(视图)、Controller(控制器)。从结构上看，可以分成三层。</p>
+        <h1 id="MVC-模式和MVVM"><a href="#MVC-模式和MVVM" class="headerlink" title="MVC 模式和MVVM"></a>MVC 模式和MVVM</h1><h2 id="MVC是什么"><a href="#MVC是什么" class="headerlink" title="MVC是什么"></a>MVC是什么</h2><p><img src="/assets/blogImg/mvc_pattern.png" alt><br>MVC 是三个单词首字母的缩写，它们是 Model(模型)、View(视图)、Controller(控制器)。从结构上看，可以分成三层。</p>
 <ul>
 <li>“视图层(View)”直接面向用户，它是提供给用户的操作界面。</li>
 <li>“数据层(Model)”程序需要操作的信息或数据。</li>
 <li>“控制层(Controller)”，负责读取”视图层”输入的指令，读取”数据层”中的数据，然后进行相应的操作，产生最终结果。</li>
 </ul>
 <h2 id="如何通信"><a href="#如何通信" class="headerlink" title="如何通信"></a>如何通信</h2><p>如上图所所示，View 传指令给 Controller，Controller 完成业务逻辑后，要求 Model 改变状态，Model 将新的数据发送给 View，用户得到反馈。<br>但是，不同平台和不同的语言框架对 MVC 的定义各有不同，并没有一个明确的定义。但大体上，MVC 模式的每个部分是分工明确的。操作数据只存在”数据层”中，显示数据只存在”视图层”中，处理用户的请求和输入只存在于”控制层”中。<br>在 ASP.NET MVC 中，<br><img src="/assets/blogImg/asp_mvc.png" alt><br>“控制层”在接收用户请求时，根据需求的不同，可以选择直接返回一个页面或是将页面传递来的指令传递给”数据层”，”数据层”执行完业务逻辑，将数据返回给”控制层”，”控制层”再将数据返回给”视图层”。<a id="more"></a></p>
-<h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><h2 id="是什么-1"><a href="#是什么-1" class="headerlink" title="是什么"></a>是什么</h2><p><img src="/assets/blogImg/mvvm_pattern.png" alt></p>
+<p>## </p>
+<h2 id="MVVM是什么"><a href="#MVVM是什么" class="headerlink" title="MVVM是什么"></a>MVVM是什么</h2><p><img src="/assets/blogImg/mvvm_pattern.png" alt></p>
 <ul>
 <li>“视图(View)”:负责界面显示，与 ViewModel 进行数据的双向绑定，View 的变动，自动反应在 ViewModel，反之亦然。</li>
 <li>“视图模型(ViewModel)”：主要负责页面逻辑和数据封装。</li>
@@ -241,7 +242,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/08/LaTex 30分钟入门(翻译)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/08/NodeJS学习日记/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -251,7 +252,7 @@
     </a>
   
   
-    <a href="/2019/08/08/JS自动类型转换/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/08/LaTex 30分钟入门(翻译)/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>

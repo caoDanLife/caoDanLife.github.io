@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+  <meta name="description" content="静态伪类和动态伪类什么是伪类同一个标签，根据不同的状态，有不同的样式。这就叫做“伪类”。伪类用冒号表示。 静态伪类静态伪类只能用于超链接的样式。  :link 超链接点击之前 :visited 超链接被访问之后  动态伪类动态伪类针对所有标签都适用的样式。  :hover 鼠标放到标签上的时候 :active 鼠标点击标签不松手 :focus 某个标签获得焦点时的样式">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/JS自动类型转换/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/27/静态伪类和动态伪类/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta property="og:description" content="静态伪类和动态伪类什么是伪类同一个标签，根据不同的状态，有不同的样式。这就叫做“伪类”。伪类用冒号表示。 静态伪类静态伪类只能用于超链接的样式。  :link 超链接点击之前 :visited 超链接被访问之后  动态伪类动态伪类针对所有标签都适用的样式。  :hover 鼠标放到标签上的时候 :active 鼠标点击标签不松手 :focus 某个标签获得焦点时的样式">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-17T01:25:22.199Z">
+<meta property="og:updated_time" content="2019-08-27T02:26:48.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta name="twitter:description" content="静态伪类和动态伪类什么是伪类同一个标签，根据不同的状态，有不同的样式。这就叫做“伪类”。伪类用冒号表示。 静态伪类静态伪类只能用于超链接的样式。  :link 超链接点击之前 :visited 超链接被访问之后  动态伪类动态伪类针对所有标签都适用的样式。  :hover 鼠标放到标签上的时候 :active 鼠标点击标签不松手 :focus 某个标签获得焦点时的样式">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -145,14 +145,23 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS自动类型转换" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-静态伪类和动态伪类" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
-<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
-<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返值回原始类型的，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+        <h1 id="静态伪类和动态伪类"><a href="#静态伪类和动态伪类" class="headerlink" title="静态伪类和动态伪类"></a>静态伪类和动态伪类</h1><h2 id="什么是伪类"><a href="#什么是伪类" class="headerlink" title="什么是伪类"></a>什么是伪类</h2><p>同一个标签，根据不同的状态，有不同的样式。这就叫做“伪类”。伪类用冒号表示。</p>
+<h2 id="静态伪类"><a href="#静态伪类" class="headerlink" title="静态伪类"></a>静态伪类</h2><p>静态伪类只能用于超链接的样式。</p>
+<ul>
+<li><code>:link</code> 超链接点击之前</li>
+<li><code>:visited</code> 超链接被访问之后</li>
+</ul>
+<h2 id="动态伪类"><a href="#动态伪类" class="headerlink" title="动态伪类"></a>动态伪类</h2><p>动态伪类针对所有标签都适用的样式。</p>
+<ul>
+<li><code>:hover</code> 鼠标放到标签上的时候</li>
+<li><code>:active</code> 鼠标点击标签不松手</li>
+<li><code>:focus</code> 某个标签获得焦点时的样式</li>
+</ul>
 
       
 
@@ -211,7 +220,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/08/JS自动类型转换/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/27/静态伪类和动态伪类/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -225,7 +234,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/08/LaTex 30分钟入门(翻译)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/27/css的继承性/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -235,7 +244,7 @@
     </a>
   
   
-    <a href="/2019/08/08/IP协议和子网划分/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/27/html和css中的单位/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>

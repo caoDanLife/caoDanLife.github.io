@@ -8,18 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+  <meta name="description" content="webpack入门踩坑Cannot read property ‘appendChild’ of null代码如下：1234567891011121314151617import _ from &quot;lodash&quot;;function createDomElement() &amp;#123;  let dom = document.createElement(&quot;div&quot;);  dom.innerHTML =">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/JS自动类型转换/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/webpack入门踩坑/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta property="og:description" content="webpack入门踩坑Cannot read property ‘appendChild’ of null代码如下：1234567891011121314151617import _ from &quot;lodash&quot;;function createDomElement() &amp;#123;  let dom = document.createElement(&quot;div&quot;);  dom.innerHTML =">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-17T01:25:22.199Z">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/webpackkeng.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/webpackkeng2.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/test_webpack.png">
+<meta property="og:updated_time" content="2019-08-17T03:31:25.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta name="twitter:description" content="webpack入门踩坑Cannot read property ‘appendChild’ of null代码如下：1234567891011121314151617import _ from &quot;lodash&quot;;function createDomElement() &amp;#123;  let dom = document.createElement(&quot;div&quot;);  dom.innerHTML =">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/webpackkeng.png">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -145,14 +149,18 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS自动类型转换" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-webpack入门踩坑" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
-<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
-<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返值回原始类型的，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+        <h1 id="webpack入门踩坑"><a href="#webpack入门踩坑" class="headerlink" title="webpack入门踩坑"></a>webpack入门踩坑</h1><h2 id="Cannot-read-property-‘appendChild’-of-null"><a href="#Cannot-read-property-‘appendChild’-of-null" class="headerlink" title="Cannot read property ‘appendChild’ of null"></a>Cannot read property ‘appendChild’ of null</h2><h3 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">"lodash"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createDomElement</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> dom = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line"></span><br><span class="line">  dom.innerHTML = _.join([<span class="string">"fuck"</span>, <span class="string">"you"</span>, <span class="string">"hard"</span>], <span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> dom;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ele = createDomElement();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(ele);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(ele);</span><br></pre></td></tr></table></figure>
+
+<h3 id="在vscode中调试结果："><a href="#在vscode中调试结果：" class="headerlink" title="在vscode中调试结果："></a>在vscode中调试结果：</h3><p><img src="/assets/blogImg/webpackkeng.png" alt></p>
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>在控制台中能够显示ele不为空，那么原因就出现在appendChild这一行，再结合报错信息，</p>
+<p><img src="/assets/blogImg/webpackkeng2.png" alt></p>
+<p>appendChild的参数为null，说明dom还没渲染好，再查看index.html，发现script标签自动生成在head里面，推测：放在body标签后，应该能运行成功。</p>
+<h3 id="运行结果："><a href="#运行结果：" class="headerlink" title="运行结果："></a>运行结果：</h3><p><img src="/assets/blogImg/test_webpack.png" alt></p>
 
       
 
@@ -211,7 +219,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/08/JS自动类型转换/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/17/webpack入门踩坑/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -225,7 +233,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/08/LaTex 30分钟入门(翻译)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/17/webstorm创建vuejs项目踩坑/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -235,7 +243,7 @@
     </a>
   
   
-    <a href="/2019/08/08/IP协议和子网划分/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/08/互联网协议学习记录(一)/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>

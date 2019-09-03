@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+  <meta name="description" content="C# async 和 await进程进程是占有资源的最小单元。 线程调度运算的最小单元。 123456static void Main(void)&amp;#123;    var webClient = new WebClient();    var result = webClient.DownloadString(&quot;https://github.com&quot;);    Console.WriteLine">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/JS自动类型转换/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/C# async 和 await/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta property="og:description" content="C# async 和 await进程进程是占有资源的最小单元。 线程调度运算的最小单元。 123456static void Main(void)&amp;#123;    var webClient = new WebClient();    var result = webClient.DownloadString(&quot;https://github.com&quot;);    Console.WriteLine">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-17T01:25:22.199Z">
+<meta property="og:updated_time" content="2019-08-26T12:44:44.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta name="twitter:description" content="C# async 和 await进程进程是占有资源的最小单元。 线程调度运算的最小单元。 123456static void Main(void)&amp;#123;    var webClient = new WebClient();    var result = webClient.DownloadString(&quot;https://github.com&quot;);    Console.WriteLine">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -145,14 +145,23 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS自动类型转换" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-C# async 和 await" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
-<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
-<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返值回原始类型的，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+        <h1 id="C-async-和-await"><a href="#C-async-和-await" class="headerlink" title="C# async 和 await"></a>C# async 和 await</h1><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>进程是占有资源的最小单元。</p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>调度运算的最小单元。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">void</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> webClient = <span class="keyword">new</span> WebClient();</span><br><span class="line">    <span class="keyword">var</span> result = webClient.DownloadString(<span class="string">"https://github.com"</span>);</span><br><span class="line">    Console.WriteLine(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动当前程序，此时，程序只有一个进程和一个线程。当线程用于从远程服务器下载数据时，控制台就得停止渲染。此时我们可以将认为会阻塞的代码放入一个新的线程。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> downloadThread = <span class="keyword">new</span> Thread(()=&#123;</span><br><span class="line">    <span class="keyword">var</span> result = webClient.DownloadString(<span class="string">"https://github.com"</span>);</span><br><span class="line">    Console.WriteLine(result);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Async"><a href="#Async" class="headerlink" title="Async"></a>Async</h2><p>async的作用在于标记一个方法为“不会阻塞的版本”，在执行时会瞬间返回一个任务。打个比方，这个任务相当于点外卖时返回的订单，然而，外卖送到你手上还是需要一定时间的。因此，仅仅标记一个方法为async时，该卡住的还是会卡住。</p>
+<h2 id="Await"><a href="#Await" class="headerlink" title="Await"></a>Await</h2><p>既然async只是起到标记作用，那么await总该是启动一个新线程了吧？答案是，await仍然是同步的等待该任务完成，并获取到其返回值。await之后的代码依然是由原线程执行。</p>
+<h2 id="如何编写一个async方法"><a href="#如何编写一个async方法" class="headerlink" title="如何编写一个async方法"></a>如何编写一个async方法</h2><p>await后面紧跟一个Task。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">Save</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> wc = <span class="keyword">new</span> WebClient();</span><br><span class="line">    <span class="keyword">var</span> result = <span class="keyword">await</span> wc.DownloadString();</span><br><span class="line">    <span class="comment">//文件写入方法基类并没有提供异步方法，因此，手动创建一个线程</span></span><br><span class="line">    <span class="keyword">await</span> Task.Run(()=&gt;&#123;</span><br><span class="line">        File.WriteAllText(<span class="string">"D:/result.txt"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -211,7 +220,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/08/JS自动类型转换/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/26/C# async 和 await/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -225,7 +234,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/08/LaTex 30分钟入门(翻译)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/27/html和css中的单位/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -235,7 +244,7 @@
     </a>
   
   
-    <a href="/2019/08/08/IP协议和子网划分/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/19/使用v-for遇到的问题/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>

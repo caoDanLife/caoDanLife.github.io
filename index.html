@@ -146,12 +146,13 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-互联网协议学习记录(二)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-原型继承链Demo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="在浏览器的地址栏输入-www-bilibili-com-到页面显示的过程"><a href="#在浏览器的地址栏输入-www-bilibili-com-到页面显示的过程" class="headerlink" title="在浏览器的地址栏输入 www.bilibili.com 到页面显示的过程"></a>在浏览器的地址栏输入 <a href="http://www.bilibili.com" target="_blank" rel="noopener">www.bilibili.com</a> 到页面显示的过程</h1><p>当我们打开浏览器输入一串 url，比如：<a href="https://www.bilibili.com" target="_blank" rel="noopener">bilibili</a>，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。<br>得到 B 站的 IP 后，我们要判断它是否和我们在同一个子网中，如果是，就采用 ARP 广播的方式得到它的 MAC 地址，如果不是，我们就必须通过网关转发，这时，接收方的 MAC 地址就是网关的 MAC 地址。<br>经过多个网关的转发，B 站的服务器收到数据包，读出里面的 HTTP 请求，然后做出响应，再用 TCP 协议发回来。<br>本机收到 HTTP 响应以后，就可以将网页显示出来，完成一次网络通信。</p>
+        <h1 id="原型继承链Demo"><a href="#原型继承链Demo" class="headerlink" title="原型继承链Demo"></a>原型继承链Demo</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = val;</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getVal = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">    Parent.call(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype,&#123;</span><br><span class="line">    <span class="keyword">constructor</span>: Child,</span><br><span class="line">    writable: true,</span><br><span class="line">    enumerable: false,</span><br><span class="line">    configurable: true</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -190,17 +191,14 @@
 
 
   
-    <article id="post-互联网协议学习记录(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-对浏览器的认识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h1><p>由于历史原因，OSI 模型的过于注重理论性，相反，TCP/IP 模型已经广泛使用，不过，从实质上讲，TCP/IP 只有最上面三层，因为最下面的网络接口层基本上和一般的通信链路在功能上没有多大差别。因此在学习时，采用折中的方法，采用五层协议的体系结构。<br><img src="/assets/blogImg/five_layers.png" alt="五层参考模型"></p>
-<h1 id="各层职责"><a href="#各层职责" class="headerlink" title="各层职责"></a>各层职责</h1><h2 id="实体层"><a href="#实体层" class="headerlink" title="实体层"></a>实体层</h2><p>电脑要组网，第一件事就是把各台电脑通过一些物理手段连接起来。实体层规定了网络的一些电气特性，负责传输比特流。</p>
-<h2 id="链接层"><a href="#链接层" class="headerlink" title="链接层"></a>链接层</h2><p>为了能够解析收到的比特流，必须在发送和接收时对比特流做一些处理。对于接、收双方来讲，必须规定多少个电信号算一组，每个信号位有何意义。因此，诞生了以太网协议。以太网协议规定一组电信号构成一个数据包，叫做”帧”。每一帧分成两个部分：标头和数据。接收数据时，标头中的一些控制信息使接收端能够知道一个帧从哪个比特开始和从哪个比特结束。<br>标头中的发送者和接收者是如何标识呢？以太网规定，连入网络的所有设备，都必须具有”网卡”接口，数据包必须是从一块网卡，传送到另一块网卡。网卡的地址，就是数据包的发送地址和接收地址，这叫做 MAC 地址。</p>
-        
-          <a class="article-more-a" href="/2019/08/08/互联网协议学习记录(一)/#more">more >></a>
-        
+        <h1 id="浏览器和渲染引擎"><a href="#浏览器和渲染引擎" class="headerlink" title="浏览器和渲染引擎"></a>浏览器和渲染引擎</h1><h2 id="什么是浏览器"><a href="#什么是浏览器" class="headerlink" title="什么是浏览器"></a>什么是浏览器</h2><p>浏览器是将用户选择的web资源，从服务器请求并将其显示在浏览器窗口的客户端程序。</p>
+<h2 id="渲染引擎"><a href="#渲染引擎" class="headerlink" title="渲染引擎"></a>渲染引擎</h2><p>渲染引擎可以将服务器返回的html、xml文档及图片显示出来。它的主要的工作流程是：解析html构建DOM树-&gt;构建render树-&gt;布局render树-&gt;绘制render树。</p>
+
       
 
       
@@ -238,68 +236,32 @@
 
 
   
-    <article id="post-初次安装WSL遇到的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-盒子浮动的几个结论" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="unable-to-locate-packge"><a href="#unable-to-locate-packge" class="headerlink" title="unable to locate packge"></a>unable to locate packge</h1><p>解决方法：<br><br>一开始是选择<a href="https://mirror.tuna.tsinghua.edu.cn/help/debian/" target="_blank" rel="noopener">清华镜像源</a>,来替换官方源。<br><img src="/assets/blogImg/tuna.png" alt>但是，发现清华提供的都是 https 源，无法拉取，后来才有 163 的 http 源才解决了下载包的问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.163.com/debian/ stretch main non-free contrib</span><br><span class="line">deb http://mirrors.163.com/debian/ stretch-updates main non-free contrib</span><br><span class="line">deb http://mirrors.163.com/debian/ stretch-backports main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian/ stretch main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian/ stretch-updates main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian/ stretch-backports main non-free contrib</span><br><span class="line">deb http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/08/08/初次安装WSL遇到的坑/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-TCP协议学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="运输层的职责"><a href="#运输层的职责" class="headerlink" title="运输层的职责"></a>运输层的职责</h1><p>链接层实现一个子网内的通信，网络层实现互联网中计算机的的连接，而运输层它负责的是在网络层建立的连接的基础上，实现不同主机上程序与程序间的数据传输。</p>
-<h1 id="运输层的两个主要协议"><a href="#运输层的两个主要协议" class="headerlink" title="运输层的两个主要协议"></a>运输层的两个主要协议</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><ul>
-<li>TCP：传输控制协议。它是面向连接的协议，在传输数据之前必须先建立连接，数据传输结束后要释放连接，因此它是可靠的。</li>
-<li>UDP：用户数据报协议。UDP 在传输数据之前，不需要先建立连接，同时，远地主机在收到 UDP 报文后，不需要给出任何确认，因此这种传输方式是不可靠的。</li>
+        <h1 id="盒子浮动"><a href="#盒子浮动" class="headerlink" title="盒子浮动"></a>盒子浮动</h1><h2 id="盒子浮动的性质"><a href="#盒子浮动的性质" class="headerlink" title="盒子浮动的性质"></a>盒子浮动的性质</h2><ul>
+<li><p>浮动元素脱标。<strong>一旦一个元素浮动了，那么，将能够并排了，并且能够设置宽高了。无论它原来是个div还是个span。</strong>所有标签，浮动之后，已经不区分行内、块级了。</p>
+</li>
+<li><p>一个浮动的元素，如果没有设置width，那么将自动收缩为内容的宽度（这点非常像行内元素）。</p>
+</li>
+<li><p><strong>标准流中的文字不会被浮动的盒子遮挡住</strong></p>
+</li>
+<li><p><strong>有高度的盒子，才能关住浮动</strong>。只要浮动在一个有高度的盒子中，那么这个浮动就不会影响后面的浮动元素。所以就是清除浮动带来的影响了。</p>
+</li>
+<li><p><strong>一个父亲是不能被浮动的儿子撑出高度的</strong></p>
+</li>
 </ul>
-<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>UDP 因其特点–只管发，不管收，不建立会话，一个数据包完成数据通信，因此它适用于传输较小的数据。<br>TCP 因其特点–传输之前建立连接，因此可以传输大文件，保证文件传输的正确性。</p>
-<h1 id="TCP-协议中的几个概念"><a href="#TCP-协议中的几个概念" class="headerlink" title="TCP 协议中的几个概念"></a>TCP 协议中的几个概念</h1>
-        
-          <a class="article-more-a" href="/2019/08/08/TCP协议学习记录/#more">more >></a>
-        
+<h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><ul>
+<li><p>给父元素一个height并且这个高度是大于等于子元素，但是，工作上，我们绝对不会给所有的盒子加高度，这是因为麻烦，并且不能适应页面的快速变化。</p>
+</li>
+<li><p>clear:both。意思是不允许左侧和右侧有浮动的对象。但这种方法有一个致命的问题，即它所在的标签，margin失效了。</p>
+</li>
+<li><p>隔墙法：在两个父元素之间添加一个div，并且给div添加clear:both，添加了这个属性，就意味着margin失效，但是可以添加height属性，达到曲线救国的效果。</p>
+</li>
+</ul>
+
       
 
       
@@ -337,15 +299,22 @@
 
 
   
-    <article id="post-TexLive和TexStudio安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-css的继承性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="安装-TexLive-套装"><a href="#安装-TexLive-套装" class="headerlink" title="安装 TexLive 套装"></a>安装 TexLive 套装</h1><p>进入清华镜像站，直接搜索 TexLive。<br><img src="/assets/blogImg/tuna_addr.png" alt><br><img src="/assets/blogImg/get_download_addr.png" alt><br><img src="/assets/blogImg/image_download.png" alt><br>下载完成后，在 win10 环境下，双击进入,得到以下界面。<br><img src="/assets/blogImg/prepare_to_install.png" alt><br>按照上图步骤，打开 installer<br><img src="/assets/blogImg/advance_option.png" alt><br>接着进入自定义选项，删除不必要的包：如日语包，西班牙语包等等。<br><img src="/assets/blogImg/customize.png" alt><br>点击安装进入安装界面<br><img src="/assets/blogImg/installing.png" alt><br>安装完毕<br><img src="/assets/blogImg/install_finish.png" alt></p>
-        
-          <a class="article-more-a" href="/2019/08/08/TexLive和TexStudio安装/#more">more >></a>
-        
+        <h1 id="CSS的继承性和层叠性"><a href="#CSS的继承性和层叠性" class="headerlink" title="CSS的继承性和层叠性"></a>CSS的继承性和层叠性</h1><h2 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h2><ul>
+<li>关于文字样式的属性，都具有继承性。这些属性包括：color、text-开头的、line-开头的、font-开头的。</li>
+<li>关于盒子、定位、布局的属性，都不能继承。</li>
+</ul>
+<h2 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h2><p>层叠性就是css处理冲突的能力。当多个选择器选中某个元素时，应当按照如下顺序计算权重。</p>
+<blockquote>
+<p>id的数量，类的数量，标签的数量</p>
+</blockquote>
+<p>若碰到权重相等的情况，应当比较书写顺序，看谁离标签近。</p>
+<p>注意：如果通过选择器选中的是目标的父元素，那么，由于继承性的影响，权重为0。此时若出现权重相同的情况，那么依然遵循“就近原则”。</p>
+
       
 
       
@@ -383,169 +352,23 @@
 
 
   
-    <article id="post-NodeJS学习日记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-静态伪类和动态伪类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="NodeJS-中代码的组织形式"><a href="#NodeJS-中代码的组织形式" class="headerlink" title="NodeJS 中代码的组织形式"></a>NodeJS 中代码的组织形式</h1><p>NodeJS 中一个<code>.js</code>文件，就是一个模块。由各个模块组成包，包需要向外部提供一个入口模块，入口模块向外部导出一个对象即包的导出对象。当加载模块时，如果模块名为<code>index.js</code>,就可以用模块目录的路径代替模块文件的路径。当然，也可以在<code>package.json</code>中自定义模板入口文件的路径。</p>
-<h1 id="代码迭代思路"><a href="#代码迭代思路" class="headerlink" title="代码迭代思路"></a>代码迭代思路</h1><p>在开发一个程序前首先要有一个全局的设计，不一定要很周全，但要足够能写出一些代码。在写了一些代码，有了一些具体的东西后，一定会发现一些之前忽略掉的细节。这时再反过来改进之前的设计，为第二轮迭代做准备。</p>
-<h1 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h1><p>版本号有三位，X.Y.Z。更新版本分以下情况：</p>
+        <h1 id="静态伪类和动态伪类"><a href="#静态伪类和动态伪类" class="headerlink" title="静态伪类和动态伪类"></a>静态伪类和动态伪类</h1><h2 id="什么是伪类"><a href="#什么是伪类" class="headerlink" title="什么是伪类"></a>什么是伪类</h2><p>同一个标签，根据不同的状态，有不同的样式。这就叫做“伪类”。伪类用冒号表示。</p>
+<h2 id="静态伪类"><a href="#静态伪类" class="headerlink" title="静态伪类"></a>静态伪类</h2><p>静态伪类只能用于超链接的样式。</p>
 <ul>
-<li>修复 bug，更新 Z 位</li>
-<li>增加新功能，向下兼容，更新 Y 位</li>
-<li>增加新功能，有大变动，向下不兼容，更新 X 位</li>
+<li><code>:link</code> 超链接点击之前</li>
+<li><code>:visited</code> 超链接被访问之后</li>
 </ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://nqdeng.github.io/7-days-nodejs/" target="_blank" rel="noopener">7-days-notejs</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LaTex 30分钟入门(翻译)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="30-分钟快速入门-LaTex"><a href="#30-分钟快速入门-LaTex" class="headerlink" title="30 分钟快速入门 LaTex"></a>30 分钟快速入门 LaTex</h1><p><a href="https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes" target="_blank" rel="noopener">官方文档</a></p>
-<p>在这篇文章中，将会初步介绍 LaTex。你不需要任何关于 LaTex 的先验知识，但当你看完这篇文章后，你将能写出你的第一篇 LaTex 文档，并且对 LaTex 提供的一些基本函数有很好的认识。</p>
-<h1 id="什么是-LaTex"><a href="#什么是-LaTex" class="headerlink" title="什么是 LaTex?"></a>什么是 LaTex?</h1><p>LaTex(读作:LAY-tek 或者 LAH-tek)是用于创建专业排版的文档的工具。它是基于 WYSIWYM(what you see is what you mean 所见即所其意)的思想，这就意味着你只需要专注于你的文档内容，然后计算机就会帮你排版。它不像微软的 Micorosoft Word 或是 LibreOffice Writer，让你忽略文本内容去控制排版，它可以让用户输入纯文本然后让 LaTex 去帮你完成剩下的工作。</p>
-<h1 id="为什么要学习-LaTex"><a href="#为什么要学习-LaTex" class="headerlink" title="为什么要学习 LaTex?"></a>为什么要学习 LaTex?</h1><p>LaTex 被广泛用于学术文档、书籍以及许多它形式的的出版物。它不仅仅可以优雅的创建文字排版后的文档，还可以允许用户快速地处理更复杂的排版，比如输入数学公式，创建表格，注明参考书目以及让文档的所有部分拥有一致的布局。由于有大量的开源包，LaTex 的潜力是无限的。这些包允许用户用 LaTex 做更多的事情，比如添加脚标，画图表，创建表格等等。</p>
-<p>人们使用 LaTex 的一个重要原因是它把文档的内容和样式分离开来。这意味你一旦书写你的文档内容，我们就可以轻松改变它的样式。同样地，你可以创建一种样式并且这种样式可以被用于规范许多不同文档的样式。这就意味着科学期刊可以为稿件创建模板。这些模板有事先定义好的布局，这就意味着只需要将内容添加进去即可。事实上，有成百上千中模板可以使用，它的范围包括了从简历到幻灯片。</p>
-<h1 id="书写你的第一篇-LaTex"><a href="#书写你的第一篇-LaTex" class="headerlink" title="书写你的第一篇 LaTex"></a>书写你的第一篇 LaTex</h1>
-        
-          <a class="article-more-a" href="/2019/08/08/LaTex 30分钟入门(翻译)/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MVC和MVVM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="MVC-模式"><a href="#MVC-模式" class="headerlink" title="MVC 模式"></a>MVC 模式</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p><img src="/assets/blogImg/mvc_pattern.png" alt><br>MVC 是三个单词首字母的缩写，它们是 Model(模型)、View(视图)、Controller(控制器)。从结构上看，可以分成三层。</p>
+<h2 id="动态伪类"><a href="#动态伪类" class="headerlink" title="动态伪类"></a>动态伪类</h2><p>动态伪类针对所有标签都适用的样式。</p>
 <ul>
-<li>“视图层(View)”直接面向用户，它是提供给用户的操作界面。</li>
-<li>“数据层(Model)”程序需要操作的信息或数据。</li>
-<li>“控制层(Controller)”，负责读取”视图层”输入的指令，读取”数据层”中的数据，然后进行相应的操作，产生最终结果。</li>
+<li><code>:hover</code> 鼠标放到标签上的时候</li>
+<li><code>:active</code> 鼠标点击标签不松手</li>
+<li><code>:focus</code> 某个标签获得焦点时的样式</li>
 </ul>
-<h2 id="如何通信"><a href="#如何通信" class="headerlink" title="如何通信"></a>如何通信</h2><p>如上图所所示，View 传指令给 Controller，Controller 完成业务逻辑后，要求 Model 改变状态，Model 将新的数据发送给 View，用户得到反馈。<br>但是，不同平台和不同的语言框架对 MVC 的定义各有不同，并没有一个明确的定义。但大体上，MVC 模式的每个部分是分工明确的。操作数据只存在”数据层”中，显示数据只存在”视图层”中，处理用户的请求和输入只存在于”控制层”中。<br>在 ASP.NET MVC 中，<br><img src="/assets/blogImg/asp_mvc.png" alt><br>“控制层”在接收用户请求时，根据需求的不同，可以选择直接返回一个页面或是将页面传递来的指令传递给”数据层”，”数据层”执行完业务逻辑，将数据返回给”控制层”，”控制层”再将数据返回给”视图层”。
-        
-          <a class="article-more-a" href="/2019/08/08/MVC和MVVM/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JS自动类型转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
-<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
-<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
 
       
 
@@ -584,19 +407,222 @@
 
 
   
-    <article id="post-IP协议和子网划分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-html和css中的单位" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="IP-地址"><a href="#IP-地址" class="headerlink" title="IP 地址"></a>IP 地址</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>一般的，可以把 IP 地址分为 A 类，B 类，C 类。A 类地址，网络号占 8 位，最高位固定为 0。又因为 IP 地址中网络号不能全 0 并且 127(01111111)保留本地软件环回测试本主机的进程之间的通信之用，所以，A 类 IP 地址网络号的范围就是 1~126。剩下 3 个字节为主机号，同样的，主机号不能全 0 或全 1，原因是主机号全 0 通常表示网络本身，全 1 表示网络广播。因此，一个 A 类网络中最大主机数 2^24-2 。B 类 IP 地址为 2 个字节的网络号和 2 个字节的主机号组成，其中，网络号的前两位为 10，因此后面的 14 位无论取值如何，都不可能出现网络号全 0 或全 1 的情况，所以，不存在网络总数减 2 的问题，但实际上 B 类网络地址 128.0.0.0 是不指派的。可以指派的 B 类地址的最小网络地址是 128.1.0.0，因此 B 类网络数为 2^14-1 ，一个 B 类网络中最大主机数为 2^16-2 。C 类 IP 地址有 3 个字节的网络号，最前面的 3 位是(110)，还有 21 位可以分配，192.0.0.0 也是不指派的，可以指派的 C 类最小网络地址是 192.0.1.0。因此 C 类可指派的网络总数为 2^21-1 ，每个 C 类地址最大主机数是 2^8-2 。</p>
-<hr>
-<p>如果将 IP 地址能否被全世界访问作为依据的话，还可以将 IP 地址分为私有 IP 和公有 IP。</p>
-<h2 id="什么是公有-IP"><a href="#什么是公有-IP" class="headerlink" title="什么是公有 IP"></a>什么是公有 IP</h2><p>组建一个企业级网络时，向电信运营商申请一个介入 Internet 的宽带，同时我们还会被分配一个或多个 IP 地址，这些 IP 就是共有 IP。</p>
-<h2 id="什么是私有-IP"><a href="#什么是私有-IP" class="headerlink" title="什么是私有 IP"></a>什么是私有 IP</h2><p>一般家庭内部组建局域网用的 IP，都是私有 IP，如果需要访问公网上的资源，可以使用 NAT 技术，将私网 IP 转换成公网 IP。私有网段，有 A，B，C 三个地址段，分别为：
+        <h1 id="html和css中的单位"><a href="#html和css中的单位" class="headerlink" title="html和css中的单位"></a>html和css中的单位</h1><p>html 中的单位只有一个：px，因此在html文件中，px可以省略。css中的单位分绝对单位和相对单位。绝对单位有：</p>
+<ul>
+<li>in： 英寸 (1 英寸 = 2.54 厘米)</li>
+<li>cm： 厘米</li>
+<li>mm： 毫米</li>
+<li>pt： 点Points，或者叫英镑 (1点 = 1/72英寸)</li>
+<li>pc：皮卡Picas (1 皮卡 = 12 点)</li>
+</ul>
+<p>相对单位有：</p>
+<ul>
+<li>px： 像素</li>
+<li>em：印刷单位相当于12个点</li>
+<li>%：百分比，相对于周围的文字的大小</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
         
-          <a class="article-more-a" href="/2019/08/08/IP协议和子网划分/#more">more >></a>
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
         
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C# async 和 await" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="C-async-和-await"><a href="#C-async-和-await" class="headerlink" title="C# async 和 await"></a>C# async 和 await</h1><h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>进程是占有资源的最小单元。</p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>调度运算的最小单元。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">void</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> webClient = <span class="keyword">new</span> WebClient();</span><br><span class="line">    <span class="keyword">var</span> result = webClient.DownloadString(<span class="string">"https://github.com"</span>);</span><br><span class="line">    Console.WriteLine(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动当前程序，此时，程序只有一个进程和一个线程。当线程用于从远程服务器下载数据时，控制台就得停止渲染。此时我们可以将认为会阻塞的代码放入一个新的线程。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> downloadThread = <span class="keyword">new</span> Thread(()=&#123;</span><br><span class="line">    <span class="keyword">var</span> result = webClient.DownloadString(<span class="string">"https://github.com"</span>);</span><br><span class="line">    Console.WriteLine(result);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Async"><a href="#Async" class="headerlink" title="Async"></a>Async</h2><p>async的作用在于标记一个方法为“不会阻塞的版本”，在执行时会瞬间返回一个任务。打个比方，这个任务相当于点外卖时返回的订单，然而，外卖送到你手上还是需要一定时间的。因此，仅仅标记一个方法为async时，该卡住的还是会卡住。</p>
+<h2 id="Await"><a href="#Await" class="headerlink" title="Await"></a>Await</h2><p>既然async只是起到标记作用，那么await总该是启动一个新线程了吧？答案是，await仍然是同步的等待该任务完成，并获取到其返回值。await之后的代码依然是由原线程执行。</p>
+<h2 id="如何编写一个async方法"><a href="#如何编写一个async方法" class="headerlink" title="如何编写一个async方法"></a>如何编写一个async方法</h2><p>await后面紧跟一个Task。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">Save</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> wc = <span class="keyword">new</span> WebClient();</span><br><span class="line">    <span class="keyword">var</span> result = <span class="keyword">await</span> wc.DownloadString();</span><br><span class="line">    <span class="comment">//文件写入方法基类并没有提供异步方法，因此，手动创建一个线程</span></span><br><span class="line">    <span class="keyword">await</span> Task.Run(()=&gt;&#123;</span><br><span class="line">        File.WriteAllText(<span class="string">"D:/result.txt"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-使用v-for遇到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用v-for碰到的问题"><a href="#使用v-for碰到的问题" class="headerlink" title="使用v-for碰到的问题"></a>使用v-for碰到的问题</h1><h2 id="vue-require-v-for-key-Elements-in-iteration-expect-to-have-‘v-bind-key’-directives"><a href="#vue-require-v-for-key-Elements-in-iteration-expect-to-have-‘v-bind-key’-directives" class="headerlink" title="[vue/require-v-for-key] Elements in iteration expect to have ‘v-bind:key’ directives"></a>[vue/require-v-for-key] Elements in iteration expect to have ‘v-bind:key’ directives</h2><p><img src="/assets/blogImg/v-forkeng.png" alt></p>
+<p>原因：Vue 2.2.0+的版本里，当在组件中使用v-for时，key是必须的</p>
+<p>解决方法：只要在div后面加上<code>:key=item</code>即可。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Promise的由来" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Promise的产生"><a href="#Promise的产生" class="headerlink" title="Promise的产生"></a>Promise的产生</h1><h2 id="为什么要有Promise"><a href="#为什么要有Promise" class="headerlink" title="为什么要有Promise"></a>为什么要有Promise</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user;</span><br><span class="line"><span class="comment">// fetch all users</span></span><br><span class="line">$.<span class="keyword">get</span>('https://api.github.com/users',data=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fetched all users'</span>);</span><br><span class="line">    user = data[<span class="number">0</span>].login;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// fetch the first user's reppos</span></span><br><span class="line">$.<span class="keyword">get</span>(`https://api.github.com/users/$&#123;user&#125;/repos<span class="string">`,data=&gt;&#123;</span></span><br><span class="line"><span class="string">    console.log('fetch user repos');</span></span><br><span class="line"><span class="string">    console.log(data);</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码原意是想获得第一个用户之后再获得此用户的所有仓库。但是由于这些方法都是异步的，因此不能保证代码的执行顺序。要想第一个方法先执行完再执行第二个方法，可以将第二个方法写在第一个函数的方法体中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fetch all users</span></span><br><span class="line">$.<span class="keyword">get</span>('https://api.github.com/users',data=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fetched all users'</span>);</span><br><span class="line">    user = data[<span class="number">0</span>].login;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// fetch the first user's reppos</span></span><br><span class="line">    $.<span class="keyword">get</span>(`https://api.github.com/users/$&#123;user&#125;/repos<span class="string">`,data=&gt;&#123;</span></span><br><span class="line"><span class="string">        console.log('fetch user repos');</span></span><br><span class="line"><span class="string">        console.log(data);</span></span><br><span class="line"><span class="string">    &#125;);</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+
+<p>同理，若此此时还有第三个方法要在第二个方法执行完的前提下开始执行，那么，就要在第二个方法的回调函数中添加第三个方法，这样代码的嵌套层次就会变多，容易产生回调函数地狱，不利于代码的阅读。因此，就有了Promise来解决这样的问题。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-runtime-compiler和runtime-only" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="runtime-compiler-和-runtime-only-的区别"><a href="#runtime-compiler-和-runtime-only-的区别" class="headerlink" title="runtime-compiler 和 runtime-only 的区别"></a>runtime-compiler 和 runtime-only 的区别</h1><p>使用vue-cli创建项目时，选用runtime-compiler和runtime-only生成的项目，两者的区别只在<code>main.js</code>中。前者，导入<code>App</code>后，要先在<code>component</code>中注册，然后在<code>template</code>中使用<code>App</code>。具体过程是这样的：</p>
+<p>当把一个<code>template</code>传递给一个Vue实例时，会被先解析成抽象语法树(ast)，接着ast被编译成render函数，然后通过render函数转换成虚拟DOM，最后被渲染成真实DOM。</p>
+<p>后者则是，导入<code>App</code>后并没有进行注册，而是用一个<code>render</code>箭头函数替换掉<code>template</code>和<code>component</code>，然后<code>render</code>函数返回一个渲染过的<code>App</code>即虚拟DOM。那么，render函数之前的事情是谁完成的，这时到package.json中就可以找到原来初始化项目时已经安装了vue-template-compiler。</p>
+
       
 
       
@@ -636,7 +662,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

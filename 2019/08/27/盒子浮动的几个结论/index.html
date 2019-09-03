@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+  <meta name="description" content="盒子浮动盒子浮动的性质 浮动元素脱标。一旦一个元素浮动了，那么，将能够并排了，并且能够设置宽高了。无论它原来是个div还是个span。所有标签，浮动之后，已经不区分行内、块级了。  一个浮动的元素，如果没有设置width，那么将自动收缩为内容的宽度（这点非常像行内元素）。  标准流中的文字不会被浮动的盒子遮挡住  有高度的盒子，才能关住浮动。只要浮动在一个有高度的盒子中，那么这个浮动就不会影响后面">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/JS自动类型转换/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/27/盒子浮动的几个结论/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta property="og:description" content="盒子浮动盒子浮动的性质 浮动元素脱标。一旦一个元素浮动了，那么，将能够并排了，并且能够设置宽高了。无论它原来是个div还是个span。所有标签，浮动之后，已经不区分行内、块级了。  一个浮动的元素，如果没有设置width，那么将自动收缩为内容的宽度（这点非常像行内元素）。  标准流中的文字不会被浮动的盒子遮挡住  有高度的盒子，才能关住浮动。只要浮动在一个有高度的盒子中，那么这个浮动就不会影响后面">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-17T01:25:22.199Z">
+<meta property="og:updated_time" content="2019-08-27T15:08:01.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta name="twitter:description" content="盒子浮动盒子浮动的性质 浮动元素脱标。一旦一个元素浮动了，那么，将能够并排了，并且能够设置宽高了。无论它原来是个div还是个span。所有标签，浮动之后，已经不区分行内、块级了。  一个浮动的元素，如果没有设置width，那么将自动收缩为内容的宽度（这点非常像行内元素）。  标准流中的文字不会被浮动的盒子遮挡住  有高度的盒子，才能关住浮动。只要浮动在一个有高度的盒子中，那么这个浮动就不会影响后面">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -145,14 +145,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS自动类型转换" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-盒子浮动的几个结论" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
-<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
-<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返值回原始类型的，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+        <h1 id="盒子浮动"><a href="#盒子浮动" class="headerlink" title="盒子浮动"></a>盒子浮动</h1><h2 id="盒子浮动的性质"><a href="#盒子浮动的性质" class="headerlink" title="盒子浮动的性质"></a>盒子浮动的性质</h2><ul>
+<li><p>浮动元素脱标。<strong>一旦一个元素浮动了，那么，将能够并排了，并且能够设置宽高了。无论它原来是个div还是个span。</strong>所有标签，浮动之后，已经不区分行内、块级了。</p>
+</li>
+<li><p>一个浮动的元素，如果没有设置width，那么将自动收缩为内容的宽度（这点非常像行内元素）。</p>
+</li>
+<li><p><strong>标准流中的文字不会被浮动的盒子遮挡住</strong></p>
+</li>
+<li><p><strong>有高度的盒子，才能关住浮动</strong>。只要浮动在一个有高度的盒子中，那么这个浮动就不会影响后面的浮动元素。所以就是清除浮动带来的影响了。</p>
+</li>
+<li><p><strong>一个父亲是不能被浮动的儿子撑出高度的</strong></p>
+</li>
+</ul>
+<h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><ul>
+<li><p>给父元素一个height并且这个高度是大于等于子元素，但是，工作上，我们绝对不会给所有的盒子加高度，这是因为麻烦，并且不能适应页面的快速变化。</p>
+</li>
+<li><p>clear:both。意思是不允许左侧和右侧有浮动的对象。但这种方法有一个致命的问题，即它所在的标签，margin失效了。</p>
+</li>
+<li><p>隔墙法：在两个父元素之间添加一个div，并且给div添加clear:both，添加了这个属性，就意味着margin失效，但是可以添加height属性，达到曲线救国的效果。</p>
+</li>
+</ul>
 
       
 
@@ -211,7 +228,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/08/JS自动类型转换/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/27/盒子浮动的几个结论/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -225,7 +242,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/08/LaTex 30分钟入门(翻译)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/03/对浏览器的认识/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -235,7 +252,7 @@
     </a>
   
   
-    <a href="/2019/08/08/IP协议和子网划分/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/27/css的继承性/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>

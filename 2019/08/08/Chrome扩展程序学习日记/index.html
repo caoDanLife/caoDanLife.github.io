@@ -17,7 +17,7 @@
 <meta property="og:description" content="Chrome 扩展程序的基本组成一个扩展程序就是压缩在一起的一组文件，这些文件可以是 HTML,CSS,JS,图片。其中最小单元为一个 manifest.json 和一个 js 文件。  manifest.json 是扩展的调度中心，用于声名各种资源。 js 文件中定义要执行的操作  Chrome 扩展程序的架构 不可视的 background 页面：分两种，一种是 event-page，出发特定">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/extension_source_code.png">
-<meta property="og:updated_time" content="2019-08-10T00:37:54.123Z">
+<meta property="og:updated_time" content="2019-08-17T03:03:03.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
 <meta name="twitter:description" content="Chrome 扩展程序的基本组成一个扩展程序就是压缩在一起的一组文件，这些文件可以是 HTML,CSS,JS,图片。其中最小单元为一个 manifest.json 和一个 js 文件。  manifest.json 是扩展的调度中心，用于声名各种资源。 js 文件中定义要执行的操作  Chrome 扩展程序的架构 不可视的 background 页面：分两种，一种是 event-page，出发特定">
@@ -157,7 +157,7 @@
 <li><code>manifest.json</code> 是扩展的调度中心，用于声名各种资源。</li>
 <li>js 文件中定义要执行的操作</li>
 </ul>
-<h1 id="Chrome-扩展程序的架构"><a href="#Chrome-扩展程序的架构" class="headerlink" title="Chrome 扩展程序的架构"></a>Chrome 扩展程序的架构</h1><ul>
+<h2 id="Chrome-扩展程序的架构"><a href="#Chrome-扩展程序的架构" class="headerlink" title="Chrome 扩展程序的架构"></a>Chrome 扩展程序的架构</h2><ul>
 <li>不可视的 background 页面：分两种，一种是 event-page，出发特定事件时，才执行。另一种是 persistent background page。一直运行在后台。</li>
 <li>可视页面：最常用的分两种，一种是<code>browser actions</code>扩展程序适用于各种页面。另一种<code>page actions</code>扩展程序只能适用于某一个页面。二者互斥，使用了前者，就不能使用后者。反之亦然。</li>
 <li><code>content-scripts</code>:乍一看，是一组 js 文件，但其实还可以向页面注入<code>css</code>文件。js 文件运行在浏览器当前页面的的上下文，因此可以获取修改 DOM 结构来实现与 web 页面的交互。但对于页面中的 js 文件中声明的变量，是不可访问的。</li>
@@ -166,7 +166,7 @@
 
 </li>
 </ul>
-<h1 id="查看扩展程序的源代码"><a href="#查看扩展程序的源代码" class="headerlink" title="查看扩展程序的源代码"></a>查看扩展程序的源代码</h1><p>进入<code>C:\Users\用户名\AppData\Local\Google\Chrome\User Data\Default\Extensions\</code>就可以看到安装的扩展程序的 ID 号命名的文件夹，进入即可看到源代码。<br><img src="/assets/blogImg/extension_source_code.png" alt="代码结构"></p>
+<h2 id="查看扩展程序的源代码"><a href="#查看扩展程序的源代码" class="headerlink" title="查看扩展程序的源代码"></a>查看扩展程序的源代码</h2><p>进入<code>C:\Users\用户名\AppData\Local\Google\Chrome\User Data\Default\Extensions\</code>就可以看到安装的扩展程序的 ID 号命名的文件夹，进入即可看到源代码。<br><img src="/assets/blogImg/extension_source_code.png" alt="代码结构"></p>
 
       
 

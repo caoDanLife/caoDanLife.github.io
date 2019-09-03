@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+  <meta name="description" content="runtime-compiler 和 runtime-only 的区别使用vue-cli创建项目时，选用runtime-compiler和runtime-only生成的项目，两者的区别只在main.js中。前者，导入App后，要先在component中注册，然后在template中使用App。具体过程是这样的： 当把一个template传递给一个Vue实例时，会被先解析成抽象语法树(ast)，接着">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/JS自动类型转换/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/18/runtime-compiler和runtime-only/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta property="og:description" content="runtime-compiler 和 runtime-only 的区别使用vue-cli创建项目时，选用runtime-compiler和runtime-only生成的项目，两者的区别只在main.js中。前者，导入App后，要先在component中注册，然后在template中使用App。具体过程是这样的： 当把一个template传递给一个Vue实例时，会被先解析成抽象语法树(ast)，接着">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-17T01:25:22.199Z">
+<meta property="og:updated_time" content="2019-08-18T07:10:47.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta name="twitter:description" content="runtime-compiler 和 runtime-only 的区别使用vue-cli创建项目时，选用runtime-compiler和runtime-only生成的项目，两者的区别只在main.js中。前者，导入App后，要先在component中注册，然后在template中使用App。具体过程是这样的： 当把一个template传递给一个Vue实例时，会被先解析成抽象语法树(ast)，接着">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -145,14 +145,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS自动类型转换" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-runtime-compiler和runtime-only" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
-<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
-<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返值回原始类型的，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+        <h1 id="runtime-compiler-和-runtime-only-的区别"><a href="#runtime-compiler-和-runtime-only-的区别" class="headerlink" title="runtime-compiler 和 runtime-only 的区别"></a>runtime-compiler 和 runtime-only 的区别</h1><p>使用vue-cli创建项目时，选用runtime-compiler和runtime-only生成的项目，两者的区别只在<code>main.js</code>中。前者，导入<code>App</code>后，要先在<code>component</code>中注册，然后在<code>template</code>中使用<code>App</code>。具体过程是这样的：</p>
+<p>当把一个<code>template</code>传递给一个Vue实例时，会被先解析成抽象语法树(ast)，接着ast被编译成render函数，然后通过render函数转换成虚拟DOM，最后被渲染成真实DOM。</p>
+<p>后者则是，导入<code>App</code>后并没有进行注册，而是用一个<code>render</code>箭头函数替换掉<code>template</code>和<code>component</code>，然后<code>render</code>函数返回一个渲染过的<code>App</code>即虚拟DOM。那么，render函数之前的事情是谁完成的，这时到package.json中就可以找到原来初始化项目时已经安装了vue-template-compiler。</p>
 
       
 
@@ -211,7 +211,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/08/JS自动类型转换/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/18/runtime-compiler和runtime-only/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -225,7 +225,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/08/LaTex 30分钟入门(翻译)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/19/Promise的由来/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -235,7 +235,7 @@
     </a>
   
   
-    <a href="/2019/08/08/IP协议和子网划分/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/18/VueRouter学习记录(一)/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>

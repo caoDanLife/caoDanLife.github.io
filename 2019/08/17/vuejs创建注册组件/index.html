@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+  <meta name="description" content="Vuejs创建和注册组件什么是组件组件就是以UI界面的角度进行划分不同的功能模块，将来我们需要什么样的功能，就可以调用对应的组件。 全局组件的定义和注册1234&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;!--直接把组件的名称，以HTML标签的形式，引入到页面中--&amp;gt;    &amp;lt;account&amp;gt;&amp;lt;/account&amp;gt;&amp;lt;/div&amp;gt;  12345678">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/JS自动类型转换/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/vuejs创建注册组件/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta property="og:description" content="Vuejs创建和注册组件什么是组件组件就是以UI界面的角度进行划分不同的功能模块，将来我们需要什么样的功能，就可以调用对应的组件。 全局组件的定义和注册1234&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;!--直接把组件的名称，以HTML标签的形式，引入到页面中--&amp;gt;    &amp;lt;account&amp;gt;&amp;lt;/account&amp;gt;&amp;lt;/div&amp;gt;  12345678">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-17T01:25:22.199Z">
+<meta property="og:updated_time" content="2019-08-18T00:45:23.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta name="twitter:description" content="Vuejs创建和注册组件什么是组件组件就是以UI界面的角度进行划分不同的功能模块，将来我们需要什么样的功能，就可以调用对应的组件。 全局组件的定义和注册1234&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;lt;!--直接把组件的名称，以HTML标签的形式，引入到页面中--&amp;gt;    &amp;lt;account&amp;gt;&amp;lt;/account&amp;gt;&amp;lt;/div&amp;gt;  12345678">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -145,14 +145,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS自动类型转换" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vuejs创建注册组件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
-<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
-<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返值回原始类型的，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+        <h1 id="Vuejs创建和注册组件"><a href="#Vuejs创建和注册组件" class="headerlink" title="Vuejs创建和注册组件"></a>Vuejs创建和注册组件</h1><h2 id="什么是组件"><a href="#什么是组件" class="headerlink" title="什么是组件"></a>什么是组件</h2><p>组件就是以UI界面的角度进行划分不同的功能模块，将来我们需要什么样的功能，就可以调用对应的组件。</p>
+<h2 id="全局组件的定义和注册"><a href="#全局组件的定义和注册" class="headerlink" title="全局组件的定义和注册"></a>全局组件的定义和注册</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--直接把组件的名称，以HTML标签的形式，引入到页面中--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">account</span>&gt;</span><span class="tag">&lt;/<span class="name">account</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用 Vue.extend 定义组件</span></span><br><span class="line"><span class="keyword">var</span> myAccount = Vue.extend(&#123;</span><br><span class="line">    template: <span class="string">'&lt;div&gt;&lt;h2&gt;登陆页面&lt;/h2&gt;&lt;h3&gt;注册页面&lt;/h3&gt;&lt;/div&gt;'</span><span class="comment">//通过 template 属性，指定组件要展示的HTML结构</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//使用 Vue.component('组件的名称'，创建出来的组件模板对象) 注册组件,如果组件的名称是驼峰命名，那么在在标签中使用时，要同时在两个单词之间使用'-'分割</span></span><br><span class="line">Vue.component(<span class="string">'account'</span>,myAccount);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el:<span class="string">'#app'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>还可以直接在Vue.component方法中定义、注册组件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'account'</span>,&#123;</span><br><span class="line">    template: <span class="string">'&lt;div&gt;&lt;h2&gt;登陆页面&lt;/h2&gt;&lt;h3&gt;注册页面&lt;/h3&gt;&lt;/div&gt;'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>还可以将组件内容定义到template标签中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--定义模板--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"myAccount"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span></span><br><span class="line">            登陆页面</span><br><span class="line">        <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span></span><br><span class="line">            注册页面</span><br><span class="line">        <span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义、注册组件</span></span><br><span class="line">Vue.component(<span class="string">'account'</span>,&#123;</span><br><span class="line">    template: <span class="string">'#myAccount'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="私有组件的定义和注册"><a href="#私有组件的定义和注册" class="headerlink" title="私有组件的定义和注册"></a>私有组件的定义和注册</h2><p>全局组件可以被多个Vue实例共享。在一个Vue实例的内部定义私有组件，只有当前这个Vue实例才可以使用这个组件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;&#125;,</span><br><span class="line">    component: &#123;<span class="comment">//定义、注册Vue实例内部的私有组件</span></span><br><span class="line">        myLogin: &#123;</span><br><span class="line">            template: <span class="string">'&lt;h3&gt;这是私有的login组件&lt;/h3&gt;'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vue中html、css、js-分离"><a href="#Vue中html、css、js-分离" class="headerlink" title="Vue中html、css、js 分离"></a>Vue中html、css、js 分离</h2><p>以上的代码都是写在一个HTML文件中，但是在代码较多的情况下，不便于查找组件，因此，将HTML，CSS，JS分离出来是一个好的选择。默认的<code>.vue</code>文件通过<code>&lt;template&gt;&lt;/template&gt;``&lt;style&gt;&lt;/style&gt;``&lt;script&gt;&lt;/script&gt;</code>将HTML,CSS,JS分割开。这种模式，当一个Vue文件样式，逻辑，模板相对简单时可以很大程度上降低复杂度。但是，当页面功能内容偏多，交互逻辑复杂，模板嵌套多层时将会不利于维护，代码逻辑不清晰。最稳妥的做法应该将css/js/html全部抽离，只保留模板主入口文件，然后再将html/css/js文件引入。</p>
 
       
 
@@ -211,7 +225,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/08/JS自动类型转换/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/17/vuejs创建注册组件/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -225,7 +239,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/08/LaTex 30分钟入门(翻译)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/18/VueRouter学习记录(一)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -235,7 +249,7 @@
     </a>
   
   
-    <a href="/2019/08/08/IP协议和子网划分/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/17/SASS学习记录/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>

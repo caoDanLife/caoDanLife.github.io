@@ -8,18 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+  <meta name="description" content="SASS学习记录为什么会有SASSCSS能够给网页提供样式，但是，毕竟它不是一门编程语言，它更像是给设计师准备的。因此，这就有了CSS预处理器，它的思想是：用一种专门的编程语言，进行网页样式设计，然后再编译成正常的CSS文件。目前，本人了解的CSS预处理器有：SASS和LESS。 SASS的编译命令可以使用sass命令加上：将sass文件编译到指定目录下。 sass sass_directory/">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/JS自动类型转换/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/SASS学习记录/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta property="og:description" content="SASS学习记录为什么会有SASSCSS能够给网页提供样式，但是，毕竟它不是一门编程语言，它更像是给设计师准备的。因此，这就有了CSS预处理器，它的思想是：用一种专门的编程语言，进行网页样式设计，然后再编译成正常的CSS文件。目前，本人了解的CSS预处理器有：SASS和LESS。 SASS的编译命令可以使用sass命令加上：将sass文件编译到指定目录下。 sass sass_directory/">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-17T01:25:22.199Z">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/sass_demo01.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/sass_compressed.png">
+<meta property="og:updated_time" content="2019-08-17T12:58:22.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="自动转换的规则是这样的(以 String 举例)：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。 字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 v">
+<meta name="twitter:description" content="SASS学习记录为什么会有SASSCSS能够给网页提供样式，但是，毕竟它不是一门编程语言，它更像是给设计师准备的。因此，这就有了CSS预处理器，它的思想是：用一种专门的编程语言，进行网页样式设计，然后再编译成正常的CSS文件。目前，本人了解的CSS预处理器有：SASS和LESS。 SASS的编译命令可以使用sass命令加上：将sass文件编译到指定目录下。 sass sass_directory/">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/sass_demo01.png">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -145,14 +148,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS自动类型转换" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SASS学习记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自动转换的规则是这样的-以-String-举例-："><a href="#自动转换的规则是这样的-以-String-举例-：" class="headerlink" title="自动转换的规则是这样的(以 String 举例)："></a>自动转换的规则是这样的(以 String 举例)：</h1><p>预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用 String 函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。</p>
-<p>字符串的自动转换，主要发生在字符串的加法运算时。当一个值为字符串，另一个值为非字符串，则后者转为字符串。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
-<p>先调用对象自身的 toString 方法。如果返回原始类型的值，则对该值使用 String 函数，不再进行以下步骤。如果 toString 方法返回的是对象，再调用原对象的 valueOf 方法。如果 valueOf 方法返值回原始类型的，则对该值使用 String 函数，不再进行以下步骤。如果 valueOf 方法返回的是对象，就错。String 方法背后的转换规则，与 Number 方法基本相同，只是互换了 valueOf 方法和 toString 方法的执行顺序。</p>
+        <h1 id="SASS学习记录"><a href="#SASS学习记录" class="headerlink" title="SASS学习记录"></a>SASS学习记录</h1><h2 id="为什么会有SASS"><a href="#为什么会有SASS" class="headerlink" title="为什么会有SASS"></a>为什么会有SASS</h2><p>CSS能够给网页提供样式，但是，毕竟它不是一门编程语言，它更像是给设计师准备的。因此，这就有了CSS预处理器，它的思想是：用一种专门的编程语言，进行网页样式设计，然后再编译成正常的CSS文件。目前，本人了解的CSS预处理器有：SASS和LESS。</p>
+<h2 id="SASS的编译命令"><a href="#SASS的编译命令" class="headerlink" title="SASS的编译命令"></a>SASS的编译命令</h2><p>可以使用sass命令加上<code>：</code>将sass文件编译到指定目录下。</p>
+<p><code>sass sass_directory/sass_file:css_directory/css_file</code></p>
+<p>效果如下：</p>
+<p><img src="/assets/blogImg/sass_demo01.png" alt></p>
+<p>当我们不想每次修改完sass文件再去执行一遍上面的命令时，可以使用下面这个命令去监视sass文件的变化，然后自动输出css文件。</p>
+<p><code>sass --watch sass_directory:css_directory</code></p>
+<h2 id="SASS编译输出格式"><a href="#SASS编译输出格式" class="headerlink" title="SASS编译输出格式"></a>SASS编译输出格式</h2><p>SASS编译输出有4种输出格式，分别是：</p>
+<ul>
+<li>nested 嵌套</li>
+<li>compact 紧凑</li>
+<li>expanded 扩展</li>
+<li>compressed 压缩</li>
+</ul>
+<p>使用<code>sass --watch sass_directory:css_directory --style compressed(输出格式)</code>，在生产环境中一般使用compressed。输出效果如下：</p>
+<p><img src="/assets/blogImg/sass_compressed.png" alt></p>
 
       
 
@@ -211,7 +227,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/08/JS自动类型转换/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/17/SASS学习记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -225,7 +241,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/08/LaTex 30分钟入门(翻译)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/17/vuejs创建注册组件/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -235,7 +251,7 @@
     </a>
   
   
-    <a href="/2019/08/08/IP协议和子网划分/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/17/vuejs中的4类组件/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="NodeJS 中代码的组织形式NodeJS 中一个.js文件，就是一个模块。由各个模块组成包，包需要向外部提供一个入口模块，入口模块向外部导出一个对象即包的导出对象。当加载模块时，如果模块名为index.js,就可以用模块目录的路径代替模块文件的路径。当然，也可以在package.json中自定义模板入口文件的路径。 代码迭代思路在开发一个程序前首先要有一个全局的设计，不一定要很周全，但要足够能写">
+  <meta name="description" content="NodeJS 小知识点代码的组织形式NodeJS 中一个.js文件，就是一个模块。由各个模块组成包，包需要向外部提供一个入口模块，入口模块向外部导出一个对象即包的导出对象。当加载模块时，如果模块名为index.js,就可以用模块目录的路径代替模块文件的路径。当然，也可以在package.json中自定义模板入口文件的路径。 代码迭代思路在开发一个程序前首先要有一个全局的设计，不一定要很周全，但要足">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/2019/08/08/NodeJS学习日记/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="NodeJS 中代码的组织形式NodeJS 中一个.js文件，就是一个模块。由各个模块组成包，包需要向外部提供一个入口模块，入口模块向外部导出一个对象即包的导出对象。当加载模块时，如果模块名为index.js,就可以用模块目录的路径代替模块文件的路径。当然，也可以在package.json中自定义模板入口文件的路径。 代码迭代思路在开发一个程序前首先要有一个全局的设计，不一定要很周全，但要足够能写">
+<meta property="og:description" content="NodeJS 小知识点代码的组织形式NodeJS 中一个.js文件，就是一个模块。由各个模块组成包，包需要向外部提供一个入口模块，入口模块向外部导出一个对象即包的导出对象。当加载模块时，如果模块名为index.js,就可以用模块目录的路径代替模块文件的路径。当然，也可以在package.json中自定义模板入口文件的路径。 代码迭代思路在开发一个程序前首先要有一个全局的设计，不一定要很周全，但要足">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-01T15:26:37.445Z">
+<meta property="og:updated_time" content="2019-08-17T03:13:55.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="NodeJS 中代码的组织形式NodeJS 中一个.js文件，就是一个模块。由各个模块组成包，包需要向外部提供一个入口模块，入口模块向外部导出一个对象即包的导出对象。当加载模块时，如果模块名为index.js,就可以用模块目录的路径代替模块文件的路径。当然，也可以在package.json中自定义模板入口文件的路径。 代码迭代思路在开发一个程序前首先要有一个全局的设计，不一定要很周全，但要足够能写">
+<meta name="twitter:description" content="NodeJS 小知识点代码的组织形式NodeJS 中一个.js文件，就是一个模块。由各个模块组成包，包需要向外部提供一个入口模块，入口模块向外部导出一个对象即包的导出对象。当加载模块时，如果模块名为index.js,就可以用模块目录的路径代替模块文件的路径。当然，也可以在package.json中自定义模板入口文件的路径。 代码迭代思路在开发一个程序前首先要有一个全局的设计，不一定要很周全，但要足">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -150,15 +150,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="NodeJS-中代码的组织形式"><a href="#NodeJS-中代码的组织形式" class="headerlink" title="NodeJS 中代码的组织形式"></a>NodeJS 中代码的组织形式</h1><p>NodeJS 中一个<code>.js</code>文件，就是一个模块。由各个模块组成包，包需要向外部提供一个入口模块，入口模块向外部导出一个对象即包的导出对象。当加载模块时，如果模块名为<code>index.js</code>,就可以用模块目录的路径代替模块文件的路径。当然，也可以在<code>package.json</code>中自定义模板入口文件的路径。</p>
-<h1 id="代码迭代思路"><a href="#代码迭代思路" class="headerlink" title="代码迭代思路"></a>代码迭代思路</h1><p>在开发一个程序前首先要有一个全局的设计，不一定要很周全，但要足够能写出一些代码。在写了一些代码，有了一些具体的东西后，一定会发现一些之前忽略掉的细节。这时再反过来改进之前的设计，为第二轮迭代做准备。</p>
-<h1 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h1><p>版本号有三位，X.Y.Z。更新版本分以下情况：</p>
+        <h1 id="NodeJS-小知识点"><a href="#NodeJS-小知识点" class="headerlink" title="NodeJS 小知识点"></a>NodeJS 小知识点</h1><h2 id="代码的组织形式"><a href="#代码的组织形式" class="headerlink" title="代码的组织形式"></a>代码的组织形式</h2><p>NodeJS 中一个<code>.js</code>文件，就是一个模块。由各个模块组成包，包需要向外部提供一个入口模块，入口模块向外部导出一个对象即包的导出对象。当加载模块时，如果模块名为<code>index.js</code>,就可以用模块目录的路径代替模块文件的路径。当然，也可以在<code>package.json</code>中自定义模板入口文件的路径。</p>
+<h2 id="代码迭代思路"><a href="#代码迭代思路" class="headerlink" title="代码迭代思路"></a>代码迭代思路</h2><p>在开发一个程序前首先要有一个全局的设计，不一定要很周全，但要足够能写出一些代码。在写了一些代码，有了一些具体的东西后，一定会发现一些之前忽略掉的细节。这时再反过来改进之前的设计，为第二轮迭代做准备。</p>
+<h2 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h2><p>版本号有三位，X.Y.Z。更新版本分以下情况：</p>
 <ul>
 <li>修复 bug，更新 Z 位</li>
 <li>增加新功能，向下兼容，更新 Y 位</li>
 <li>增加新功能，有大变动，向下不兼容，更新 X 位</li>
 </ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://nqdeng.github.io/7-days-nodejs/" target="_blank" rel="noopener">7-days-notejs</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://nqdeng.github.io/7-days-nodejs/" target="_blank" rel="noopener">7-days-notejs</a></p>
 
       
 
@@ -241,7 +241,7 @@
     </a>
   
   
-    <a href="/2019/08/08/LaTex 30分钟入门(翻译)/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/08/MVC和MVVM/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
