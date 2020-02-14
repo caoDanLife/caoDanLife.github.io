@@ -8,21 +8,24 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="深度学习总结基本概念机器学习我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。 batch size，iteration，step，epoch一次 epoch 等于所有数据 forward + backward 后更新参数的过程，代表样本集内所有数据经过一次训练；模型">
+  <meta name="description" content="深度学习总结基本概念机器学习我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。 梯度爆炸在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。 梯度消失在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。 batch">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/2020/01/27/深度学习总结/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="深度学习总结基本概念机器学习我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。 batch size，iteration，step，epoch一次 epoch 等于所有数据 forward + backward 后更新参数的过程，代表样本集内所有数据经过一次训练；模型">
+<meta property="og:description" content="深度学习总结基本概念机器学习我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。 梯度爆炸在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。 梯度消失在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。 batch">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%BC%98%E5%8C%96.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/%E5%B9%B3%E6%96%B9%E6%8D%9F%E5%A4%B1.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/data_old.JPG">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/data_new.JPG">
-<meta property="og:updated_time" content="2020-02-03T12:30:39.331Z">
+<meta property="og:updated_time" content="2020-02-14T13:36:46.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="深度学习总结基本概念机器学习我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。 batch size，iteration，step，epoch一次 epoch 等于所有数据 forward + backward 后更新参数的过程，代表样本集内所有数据经过一次训练；模型">
-<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/data_old.JPG">
+<meta name="twitter:description" content="深度学习总结基本概念机器学习我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。 梯度爆炸在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。 梯度消失在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。 batch">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D.png">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
   
@@ -154,21 +157,65 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="深度学习总结"><a href="#深度学习总结" class="headerlink" title="深度学习总结"></a>深度学习总结</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h3><p>我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。</p>
+<h3 id="梯度爆炸"><a href="#梯度爆炸" class="headerlink" title="梯度爆炸"></a>梯度爆炸</h3><p>在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。</p>
+<h3 id="梯度消失"><a href="#梯度消失" class="headerlink" title="梯度消失"></a>梯度消失</h3><p>在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。</p>
 <h3 id="batch-size，iteration，step，epoch"><a href="#batch-size，iteration，step，epoch" class="headerlink" title="batch size，iteration，step，epoch"></a>batch size，iteration，step，epoch</h3><p>一次 epoch 等于所有数据 forward + backward 后更新参数的过程，代表样本集内所有数据经过一次训练；<br>模型训练时并不是一次性把所有的训练集输入到模型中，而是把训练集分成较小的批，即一个个 batch。batch size 就是 batch 的大小(批尺寸)，即计算梯度所需要的样本数量；<br>iteration 即 step，是指进行一次学习，更新一次权重。每一次更新参数需要 batch size 个样本进行运算学习，根据运算结果调整更新一次参数。</p>
-<h3 id="BGD-SGD-Mini-SGD"><a href="#BGD-SGD-Mini-SGD" class="headerlink" title="BGD, SGD, Mini-SGD"></a>BGD, SGD, Mini-SGD</h3><p>BGD 的策略是把所有样本遍历一次后，更新一次参数;<br>SGD 的策略是一个样本更新一次参数;<br>Mini-SGD 的策略则是折中以上两种方法。每次抽取 n 个样本,其中 n &lt; 总样本数 m 。在这 n 个样本中进行 n 次迭代，每次使用 1 个样本，对 n 次迭代得出的 n 个 梯度进行加权平均再求和，作为这一次 mini-batch 下降梯度。</p>
 <h3 id="构建神经网络-深度学习模型的基本步骤"><a href="#构建神经网络-深度学习模型的基本步骤" class="headerlink" title="构建神经网络/深度学习模型的基本步骤"></a>构建神经网络/深度学习模型的基本步骤</h3><p>应用于不同场景的深度学习模型具备一定的通用性，均可以从下述五个步骤来完成模型的构建和训练。</p>
 <ul>
-<li><p>数据处理：从本地文件或网络地址读取数据，并做预处理操作，如校验数据的正确性等。</p>
+<li>数据处理：从本地文件或网络地址读取数据，并做预处理操作，如校验数据的正确性等。</li>
+<li>模型设计：完成网络结构的设计（模型要素 1），相当于模型的假设空间，即模型能够表达的关系集合。</li>
+<li>训练配置：设定模型采用的寻解算法（模型要素 2），即优化器，以及学习率等超参数。</li>
+<li>训练过程：循环调用训练过程，每轮均包括前向计算 、损失函数（优化目标，模型要素 3）和后向传播这三个步骤。</li>
+<li>保存模型：将训练好的模型保存，以备预测/评估时调用。</li>
+</ul>
+<h3 id="常用模型以及其应用场景"><a href="#常用模型以及其应用场景" class="headerlink" title="常用模型以及其应用场景"></a>常用模型以及其应用场景</h3><p><strong>深度神经网络(DNN)</strong>：DNN 内部的网络可以分为3类，输入层、隐藏层和输出层，层与层之间相互连接，即第i层的任一神经元与第i+1层的任一神经元相连接。</p>
+<p><strong>应用场景</strong>：DNN 适用于大部分分类(Classification)任务，比如数字识别等。但一般的现实场景中我们很少有那么大的数据量来支持 DNN，所以纯粹的全连接网络应用性并不是很强。</p>
+<p><strong>卷积网络(CNN)</strong>：和普通的 DNN 不同，CNN不需要为每个神经元所对应的每个输入数据提供单独的权重。卷积运算可以实现稀疏相乘和参数共享，可以压缩输入端的维度。</p>
+<p><strong>应用场景</strong>：一般都把CNN和图片联系在一起，但事实上CNN可以处理大部分格状结构化数据(Grid-like Data)。举个例子，图片的像素是二维的格状数据，时间序列在等时间上抽取相当于一维的的格状数据，而视频数据可以理解为对应视频帧宽度、高度、时间的三维数据。</p>
+<p><strong>长短期记忆(LSTM)</strong>：是一种用于处理序列数据的神经网络。相比一般的神经网络来说，他能够处理序列变化的数据。比如某个单词的意思会因为上文提到的内容不同而有不同的含义，RNN就能够很好地解决这类问题。LSTM 是一种特殊的 RNN，主要是为了解决长序列训练过程中的梯度消失和梯度爆炸问题。</p>
+<p><strong>应用场景</strong>：语音分析，文字分析，时间序列分析。主要的重点就是数据之间存在前后依赖关系，有序列关系。一般首选 LSTM，如果预测对象同时取决于过去和未来，可以选择双向结构，如双向 LSTM。</p>
+<p><strong>生成式对抗网络(GAN)</strong>：该模型由两个基础神经网络即生成器神经网络（Generator Neural Network）和判别器神经网络（Discriminator Neural Network）所组成，其中一个用于生成内容，另一个则用于判别生成的内容。生成器从给定噪声中（一般是指均匀分布或者正态分布）产生合成数据，判别器分辨生成器的的输出和真实数据。前者试图产生更接近真实的数据，相应地，后者试图更完美地分辨真实数据与生成数据。由此，两个网络在对抗中进步，在进步后继续对抗，由生成式网络得的数据也就越来越完美，逼近真实数据，从而可以生成想要得到的数据（图片、序列、视频等）。</p>
+<p><strong>应用场景</strong>：GAN 最直接的应用在于数据的生成，也就是通过 GAN 的建模能力生成图像、语音、文字、视频等等。目前，GAN 最成功的应用领域主要是计算机视觉，包括图像、视频的生成，如图像翻译、图像上色、图像修复、视频生成等。此外GAN在自然语言处理，人机交互领域也略有拓展和应用。</p>
+<p><strong>自编码器(Auto-encoder)</strong>：是一种利用反向传播算法使得输出值等于输入值的神经网络，它先将输入压缩成潜在空间表征，然后通过这种表征来重构输出。</p>
+<p><strong>应用场景</strong>：自编码器的应用主要有两个方面，第一是数据去噪，第二是为进行可视化而降维。</p>
+<h3 id="深度学习在医学领域中的使用"><a href="#深度学习在医学领域中的使用" class="headerlink" title="深度学习在医学领域中的使用"></a>深度学习在医学领域中的使用</h3><p>深度神经网络很多结构模型都被应用在医学影像中，例如卷积神经网络(Convolutional Neural Networks, CNN) 、稀疏编码网络 (Sparse Coding, HSC) 、栈式自编码器 (Stacked Auto-Encoders , SAE) 、受限玻尔兹曼机 (Restricted Boltzmann Machines, RBM) 、深度信念网络 (Deep Belief Networks ,DBN) 等 。</p>
+<p><strong>稀疏编码网络 (HSC)</strong>：输入需要处理的图像数据，然后经中间的编码层的神经网络处理，相当于对原图进行任意的干扰，而解码层的神经网络处理又相当于将干扰后的图像进行了恢复。在自编码器的基础上，限制每次表达的 code 尽量稀疏。</p>
+<p><strong>栈式自编码器 (SAE)</strong>：栈式自编码神经网络是一个由多层稀疏自编码器组成的神经网络，其前一层自编码器的输出作为其后一层自编码器的输入。栈式自编码是由无监督 pre-training、有监督微调进行训练训练的深度网络模型。</p>
+<p><strong>受限玻尔兹曼机 (RBM)</strong>：RBM 是两层神经网络，RBM 的第一层被称为可见层或者输入层，它的第二层叫做隐藏层。</p>
+<p><strong>深度信念网络 (DBN)</strong>：是一种训练产生的模型，通过训练其神经元间的权重，可以让整个神经网络按照最大概率来生成训练数据。 DBN 既可以用于识别特征、分类数据，也可以用来生成数据。 </p>
+<p>医学邻域大多采用 CNN 或者其他常用的深度学习算法，或者几种算法相融合的方式来进行图像分类检测;而且现在大多数的模型都在理论阶段，还没有应用到临床中。采用无监督学习方法确实为图像分类提供了很多便利，例如可以不用人工提取特征，避免由于医生的个人因素带来的误诊情况等，但是目前该方法的研究还主要集中在发病率比较高即病人数据量比较多的病症研究中，在一些稀有病症中的研究则很少。这可能是由于深度学习本身的自学习、自适应性决定的，它需要大量的样本数据学习才能更加准确地获取病症图像特征，以进一步作出病症诊断。</p>
+<h3 id="寻解算法"><a href="#寻解算法" class="headerlink" title="寻解算法"></a>寻解算法</h3><p><strong>梯度下降法</strong>：梯度下降算法主要包括三种，随机梯度下降、batch梯度下降、mini-batch梯度下降。</p>
+<ul>
+<li><p>随机梯度下降：是指在训练模型的时候，每次迭代只从训练数据中随机抽取一个数据来计算梯度更新模型的参数。</p>
 </li>
-<li><p>模型设计：完成网络结构的设计（模型要素 1），相当于模型的假设空间，即模型能够表达的关系集合。</p>
+<li><p>batch梯度下降：是指在训练模型的时候，每次迭代时使用所有的训练数据来计算梯度更新模型的参数。batch梯度下降算法适用于小数据集的训练，对于大数据集（大于2000）不太适应。</p>
 </li>
-<li><p>训练配置：设定模型采用的寻解算法（模型要素 2），即优化器，以及学习率等超参数。</p>
-</li>
-<li><p>训练过程：循环调用训练过程，每轮均包括前向计算 、损失函数（优化目标，模型要素 3）和后向传播这三个步骤。</p>
-</li>
-<li><p>保存模型：将训练好的模型保存，以备预测/评估时调用。</p>
+<li><p>mini-batch梯度下降：是指在训练模型的时候，每次迭代时会使用一个mini-batch数据来计算梯度更新模型的参数，通常采用2^n作为一个mini-batch，符合电脑的内存结构在一定程度上可以加快计算机的计算速度，从而减少训练的时间。</p>
+<p><img src="/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D.png" alt></p>
 </li>
 </ul>
+<p><strong>动量梯度下降法</strong>：优化参数权重w和偏置b，梯度下降算法参数更新公式如下：<br>w=w−α∗dw<br>b=b−α∗db<br>动量梯度下降算法参数更新公式如下：<br>Vw=β∗Vw+(1−β)∗dw</p>
+<p>Vb=β∗Vb+(1−β)∗db</p>
+<p>w=w−α∗Vw</p>
+<p>b=b−α∗Vb</p>
+<p>上式中 α 表示学习率，通过上式可以发现，动量梯度下降算法在更新参数的时候并不是直接使用的梯度，它还利用到以前的梯度，具体到多少，与 β 的大小有关，β 越大使用到以前的梯度越多，β 越小使用到以前的梯度越小。因为在y轴方向上梯度是有正有负的，所以均值就近似为0，即在y轴方向上不会有太大的变化。而x轴方向上的梯度都是一致的，所以能够为x轴方向上提供动量加速更新。由于动量梯度下降算法，在更新参数的时候不仅使用到了当前的梯度还使用到了以前梯度的均值作为动量，当陷入到局部极小值(梯度接近于0)，在更新的时候动量梯度下降算法还可以利用以前梯度的均值来跳出局部极小值，而梯度下降算法只会陷入到局部极小值。在使用动量梯度下降算法的时候β\betaβ通常可以取0.9。</p>
+<p><img src="/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%BC%98%E5%8C%96.png" alt></p>
+<p><strong>RMSprop算法</strong>：RMSprop算法的思想是利用梯度下降算法在y轴方向上的梯度比较大，而在x轴方向上的梯度相对较小。在进行参数更新的时候，让y轴方向上的梯度除以一个大的数，这样y轴更新的幅度就小。而x轴方向上的梯度除以一个小的数，这样x轴更新的幅度就大。从而实现了，减小了y轴方向上的更新步长，增大了x轴方向上的更新步长，使得算法能够更快的收敛。</p>
+<p><strong>Adagrad算法</strong>：是一个基于梯度的优化算法，它的主要功能是：它对不同的参数调整学习率，具体而言，对低频出现的参数进行大的更新，对高频出现的参数进行小的更新。因此，他很适合于处理稀疏数据。</p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p><strong>交叉熵损失</strong>：</p>
+<ul>
+<li><p>信息熵：编码方案完美时，最短平均编码长度的是多少。</p>
+</li>
+<li><p>交叉熵：编码方案不一定完美时（由于对概率分布的估计不一定正确），平均编码长度的是多少。</p>
+<pre><code>平均编码长度 = 最短平均编码长度 + 一个增量</code></pre></li>
+<li><p>相对熵：编码方案不一定完美时，平均编码长度相对于最小值的增加值。（即上面那个增量）</p>
+<p>可以这样理解：<strong>使用了“估算”的编码后，得到的平均编码长度</strong>（可能不是最短的）。</p>
+<p>p是真实概率分布，q是你以为的概率分布（可能不一致）;你以 q 去编码，编码方案 log(1/q_i)可能不是最优的；于是，平均编码长度 = ∑ p_i *log(1/q_i)，就是交叉熵； 只有在估算的分布 q 完全正确时，平均编码长度才是最短的，交叉熵 = 熵。</p>
+</li>
+</ul>
+<p><strong>最小二乘法</strong>：最小二乘的基本原则是：最优拟合直线应该是使各点到回归直线的距离和最小的直线，即平方和最小。</p>
+<p><img src="/assets/blogImg/%E5%B9%B3%E6%96%B9%E6%8D%9F%E5%A4%B1.png" alt></p>
+<p><code>Y-f(X)</code>表示的是残差，整个式子表示的是<strong>残差的平方和</strong>，而我们的目的就是最小化这个目标函数值。</p>
 <h2 id="代码实践-以人脸性别识别举例"><a href="#代码实践-以人脸性别识别举例" class="headerlink" title="代码实践(以人脸性别识别举例)"></a>代码实践(以人脸性别识别举例)</h2><h3 id="原始图片及其标签"><a href="#原始图片及其标签" class="headerlink" title="原始图片及其标签"></a>原始图片及其标签</h3><p><img src="/assets/blogImg/data_old.JPG" alt></p>
 <h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">copy_dataset_by_filename</span><span class="params">(in_src, out_src)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    数据分为训练集和测试集并存储到 out_src</span></span><br><span class="line"><span class="string">    训练 921 张角度脸（男女）</span></span><br><span class="line"><span class="string">    测试 230 张角度脸 93 男 137 女</span></span><br><span class="line"><span class="string">    训练和测试数据不重复，数据内部有人物重复，图片不重复</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 得到所有文件</span></span><br><span class="line">    all_file_names = os.listdir(in_src)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 筛选后的文件</span></span><br><span class="line">    file_names = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 文件名格式为CF0001_1101_00F.jpg</span></span><br><span class="line">    <span class="comment"># 判断 '2' 为 有缩放第二次测量</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> all_file_names:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> name[<span class="number">-12</span>] == <span class="string">'2'</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        file_names.append(name)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 随机获得 93个男和137个女的文件名集合</span></span><br><span class="line">    male_name_set, female_name_set = get_random_man_feman_file_name(</span><br><span class="line">        file_names, <span class="number">93</span>, <span class="number">137</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建目录</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(out_src):</span><br><span class="line">        os.mkdir(out_src)</span><br><span class="line">        os.mkdir(out_src + <span class="string">"train/"</span>)</span><br><span class="line">        os.mkdir(out_src + <span class="string">"test/"</span>)</span><br><span class="line"></span><br><span class="line">    index_train = <span class="number">0</span></span><br><span class="line">    index_test = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> file_names:</span><br><span class="line">        <span class="keyword">if</span> name <span class="keyword">in</span> male_name_set <span class="keyword">or</span> name <span class="keyword">in</span> female_name_set:</span><br><span class="line">            <span class="comment"># 复制</span></span><br><span class="line">            shutil.copyfile(in_src + name, out_src + <span class="string">"test/"</span> +</span><br><span class="line">                            name[<span class="number">1</span>] + <span class="string">"_"</span> + str(index_test) + <span class="string">".jpg"</span>)</span><br><span class="line">            index_test += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            shutil.copyfile(in_src + name, out_src + <span class="string">"train/"</span> +</span><br><span class="line">                            name[<span class="number">1</span>] + <span class="string">"_"</span> + str(index_train) + <span class="string">".jpg"</span>)</span><br><span class="line">            index_train += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
