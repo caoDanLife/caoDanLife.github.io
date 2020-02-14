@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/%E5%B9%B3%E6%96%B9%E6%8D%9F%E5%A4%B1.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/data_old.JPG">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/data_new.JPG">
-<meta property="og:updated_time" content="2020-02-14T13:36:46.122Z">
+<meta property="og:updated_time" content="2020-02-14T13:47:00.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
 <meta name="twitter:description" content="深度学习总结基本概念机器学习我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。 梯度爆炸在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。 梯度消失在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。 batch">
@@ -202,17 +202,8 @@
 <p><img src="/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%BC%98%E5%8C%96.png" alt></p>
 <p><strong>RMSprop算法</strong>：RMSprop算法的思想是利用梯度下降算法在y轴方向上的梯度比较大，而在x轴方向上的梯度相对较小。在进行参数更新的时候，让y轴方向上的梯度除以一个大的数，这样y轴更新的幅度就小。而x轴方向上的梯度除以一个小的数，这样x轴更新的幅度就大。从而实现了，减小了y轴方向上的更新步长，增大了x轴方向上的更新步长，使得算法能够更快的收敛。</p>
 <p><strong>Adagrad算法</strong>：是一个基于梯度的优化算法，它的主要功能是：它对不同的参数调整学习率，具体而言，对低频出现的参数进行大的更新，对高频出现的参数进行小的更新。因此，他很适合于处理稀疏数据。</p>
-<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p><strong>交叉熵损失</strong>：</p>
-<ul>
-<li><p>信息熵：编码方案完美时，最短平均编码长度的是多少。</p>
-</li>
-<li><p>交叉熵：编码方案不一定完美时（由于对概率分布的估计不一定正确），平均编码长度的是多少。</p>
-<pre><code>平均编码长度 = 最短平均编码长度 + 一个增量</code></pre></li>
-<li><p>相对熵：编码方案不一定完美时，平均编码长度相对于最小值的增加值。（即上面那个增量）</p>
-<p>可以这样理解：<strong>使用了“估算”的编码后，得到的平均编码长度</strong>（可能不是最短的）。</p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p><strong>交叉熵损失</strong>：可以这样理解：<strong>使用了“估算”的编码后，得到的平均编码长度</strong>（可能不是最短的）。</p>
 <p>p是真实概率分布，q是你以为的概率分布（可能不一致）;你以 q 去编码，编码方案 log(1/q_i)可能不是最优的；于是，平均编码长度 = ∑ p_i *log(1/q_i)，就是交叉熵； 只有在估算的分布 q 完全正确时，平均编码长度才是最短的，交叉熵 = 熵。</p>
-</li>
-</ul>
 <p><strong>最小二乘法</strong>：最小二乘的基本原则是：最优拟合直线应该是使各点到回归直线的距离和最小的直线，即平方和最小。</p>
 <p><img src="/assets/blogImg/%E5%B9%B3%E6%96%B9%E6%8D%9F%E5%A4%B1.png" alt></p>
 <p><code>Y-f(X)</code>表示的是残差，整个式子表示的是<strong>残差的平方和</strong>，而我们的目的就是最小化这个目标函数值。</p>
