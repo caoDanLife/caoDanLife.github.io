@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Shadow&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="深度学习总结基本概念机器学习我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。 梯度爆炸在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。 梯度消失在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。 batch">
+  <meta name="description" content="深度学习总结基本概念图像分割：目的是对图像中的不同目标进行分类，并确定其边界。 梯度爆炸：在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。 梯度消失：在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。 batch size，iteration，step，epoch： 一次 epoch 等于所有数据 forward + backward 后">
 <meta name="keywords" content="front-end developer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shadow&#39;s blog">
 <meta property="og:url" content="http://yoursite.com/2020/01/27/深度学习总结/index.html">
 <meta property="og:site_name" content="Shadow&#39;s blog">
-<meta property="og:description" content="深度学习总结基本概念机器学习我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。 梯度爆炸在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。 梯度消失在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。 batch">
+<meta property="og:description" content="深度学习总结基本概念图像分割：目的是对图像中的不同目标进行分类，并确定其边界。 梯度爆炸：在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。 梯度消失：在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。 batch size，iteration，step，epoch： 一次 epoch 等于所有数据 forward + backward 后">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%BC%98%E5%8C%96.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/%E5%B9%B3%E6%96%B9%E6%8D%9F%E5%A4%B1.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/data_old.JPG">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/data_new.JPG">
-<meta property="og:updated_time" content="2020-02-14T13:47:00.211Z">
+<meta property="og:updated_time" content="2020-02-18T12:23:56.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
-<meta name="twitter:description" content="深度学习总结基本概念机器学习我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。 梯度爆炸在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。 梯度消失在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。 batch">
+<meta name="twitter:description" content="深度学习总结基本概念图像分割：目的是对图像中的不同目标进行分类，并确定其边界。 梯度爆炸：在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。 梯度消失：在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。 batch size，iteration，step，epoch： 一次 epoch 等于所有数据 forward + backward 后">
 <meta name="twitter:image" content="http://yoursite.com/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D.png">
   
     <link rel="alternative" href="/atom.xml" title="Shadow&#39;s blog" type="application/atom+xml">
@@ -156,11 +156,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="深度学习总结"><a href="#深度学习总结" class="headerlink" title="深度学习总结"></a>深度学习总结</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h3><p>我们使用计算机设计一个系统，使它能够根据提供的训练数据按照一定的方式来学习；随着训练次数的增加，该系统可以在性能上不断学习和改进；通过参数优化的学习模型，能够用于预测相关问题的输出。</p>
-<h3 id="梯度爆炸"><a href="#梯度爆炸" class="headerlink" title="梯度爆炸"></a>梯度爆炸</h3><p>在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。</p>
-<h3 id="梯度消失"><a href="#梯度消失" class="headerlink" title="梯度消失"></a>梯度消失</h3><p>在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。</p>
-<h3 id="batch-size，iteration，step，epoch"><a href="#batch-size，iteration，step，epoch" class="headerlink" title="batch size，iteration，step，epoch"></a>batch size，iteration，step，epoch</h3><p>一次 epoch 等于所有数据 forward + backward 后更新参数的过程，代表样本集内所有数据经过一次训练；<br>模型训练时并不是一次性把所有的训练集输入到模型中，而是把训练集分成较小的批，即一个个 batch。batch size 就是 batch 的大小(批尺寸)，即计算梯度所需要的样本数量；<br>iteration 即 step，是指进行一次学习，更新一次权重。每一次更新参数需要 batch size 个样本进行运算学习，根据运算结果调整更新一次参数。</p>
-<h3 id="构建神经网络-深度学习模型的基本步骤"><a href="#构建神经网络-深度学习模型的基本步骤" class="headerlink" title="构建神经网络/深度学习模型的基本步骤"></a>构建神经网络/深度学习模型的基本步骤</h3><p>应用于不同场景的深度学习模型具备一定的通用性，均可以从下述五个步骤来完成模型的构建和训练。</p>
+        <h1 id="深度学习总结"><a href="#深度学习总结" class="headerlink" title="深度学习总结"></a>深度学习总结</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>图像分割</strong>：目的是对图像中的不同目标进行分类，并确定其边界。</p>
+<p><strong>梯度爆炸</strong>：在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。</p>
+<p><strong>梯度消失</strong>：在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。</p>
+<p><strong>batch size，iteration，step，epoch</strong>：</p>
+<p>一次 epoch 等于所有数据 forward + backward 后更新参数的过程，代表样本集内所有数据经过一次训练；<br>模型训练时并不是一次性把所有的训练集输入到模型中，而是把训练集分成较小的批，即一个个 batch。batch size 就是 batch 的大小(批尺寸)，即计算梯度所需要的样本数量；<br>iteration 即 step，是指进行一次学习，更新一次权重。每一次更新参数需要 batch size 个样本进行运算学习，根据运算结果调整更新一次参数。</p>
+<p><strong>构建神经网络/深度学习模型的基本步骤</strong>：</p>
+<p>应用于不同场景的深度学习模型具备一定的通用性，均可以从下述五个步骤来完成模型的构建和训练。</p>
 <ul>
 <li>数据处理：从本地文件或网络地址读取数据，并做预处理操作，如校验数据的正确性等。</li>
 <li>模型设计：完成网络结构的设计（模型要素 1），相当于模型的假设空间，即模型能够表达的关系集合。</li>
@@ -179,6 +181,11 @@
 <p><strong>自编码器(Auto-encoder)</strong>：是一种利用反向传播算法使得输出值等于输入值的神经网络，它先将输入压缩成潜在空间表征，然后通过这种表征来重构输出。</p>
 <p><strong>应用场景</strong>：自编码器的应用主要有两个方面，第一是数据去噪，第二是为进行可视化而降维。</p>
 <h3 id="深度学习在医学领域中的使用"><a href="#深度学习在医学领域中的使用" class="headerlink" title="深度学习在医学领域中的使用"></a>深度学习在医学领域中的使用</h3><p>深度神经网络很多结构模型都被应用在医学影像中，例如卷积神经网络(Convolutional Neural Networks, CNN) 、稀疏编码网络 (Sparse Coding, HSC) 、栈式自编码器 (Stacked Auto-Encoders , SAE) 、受限玻尔兹曼机 (Restricted Boltzmann Machines, RBM) 、深度信念网络 (Deep Belief Networks ,DBN) 等 。</p>
+<p>在医学图像分割中主要采用基于全卷积网络的框架。其最大的改进之处在于，把卷积神经网络最后的全连接层换成卷积层，输出的是一张已经做好标记的图片。全卷积网络能够从图像级别的分类进一步延伸到像素级别的分类。U-net 是一个在医学图像处理领域应用很广泛的全卷积网络，输入和输出都是图像，没有全连接层。能够同时结合底层和高层信息，底层信息有助于提高精度，高层信息用来提取复杂特征。</p>
+<p>采用深度卷积神经网络( d-CNN) 用于镰状细胞贫血症中红细胞的分类，其过程主要包括以下 4个步骤: ( 1) 分层 ＲBC 图像提取; ( 2) ＲBC 图像尺寸标准化;( 3) 基于 d-CNN 的 ＲBC 分类; ( 4) ＲBC 形状因子计算。该项研究将红细胞形态分为 8 个类别，即盘形红细胞、锯齿形红细胞、泪滴形红细胞、颗粒形红细胞、卵圆形红细胞、网织红细胞、镰形红细胞、口形红细胞。结果显示使用深度卷积神经网络 对 8 种 红 细 胞 进 行 分 类 训 练 的 平 均 准 确 率 为91．01%。</p>
+<p>以 Alex Net 和 Le Net 为网络原型构建卷积神经网络训练平台，并对其进行改进获得一种轻量高效的新结构———CCNet( cell classification net) ，其在模型大小、训练用时和分类用时上分别仅为 Le Net 的 1/1 000、1/3 和 1/30。结果显示采用CCNet 对 979 张白细胞图像进行 5 分类的最佳分类准确率为99．18%。</p>
+<p>急性淋巴细胞白血病( ALL) 和300 幅 急性髓细胞白血病(AML) 图像进行分割提取特征后，分别利用神经网络滤波算法和贝叶斯算法训练 MLP( multi-layer perceptron) 神经网络和简化模糊 AＲTMAP( simplified fuzzy AＲTM) 神经网络，将细胞分为原始淋巴细胞、原始粒细胞和正常细胞。结果显示分类准确率均在 90%以上，其中贝叶斯算法训练 MLP 结果最佳，准确率为 95．7%。</p>
+<p>在 HSV 色彩空间的 H、S 维度上通过模糊 C 均值聚类算法( fuzzy c-means algorithm) 进行细胞核的分割，提取细胞核的 77 个几何及质地特征，利用主成分分析方法选取前 6 个特征，通过 SVM( support vector machine) 分类器识别 ALL 细胞并将其分为 L1、L2、L3 三类。结果显示分类准确率分别为 96%、92%和 99%。</p>
 <p><strong>稀疏编码网络 (HSC)</strong>：输入需要处理的图像数据，然后经中间的编码层的神经网络处理，相当于对原图进行任意的干扰，而解码层的神经网络处理又相当于将干扰后的图像进行了恢复。在自编码器的基础上，限制每次表达的 code 尽量稀疏。</p>
 <p><strong>栈式自编码器 (SAE)</strong>：栈式自编码神经网络是一个由多层稀疏自编码器组成的神经网络，其前一层自编码器的输出作为其后一层自编码器的输入。栈式自编码是由无监督 pre-training、有监督微调进行训练训练的深度网络模型。</p>
 <p><strong>受限玻尔兹曼机 (RBM)</strong>：RBM 是两层神经网络，RBM 的第一层被称为可见层或者输入层，它的第二层叫做隐藏层。</p>
@@ -202,11 +209,13 @@
 <p><img src="/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%BC%98%E5%8C%96.png" alt></p>
 <p><strong>RMSprop算法</strong>：RMSprop算法的思想是利用梯度下降算法在y轴方向上的梯度比较大，而在x轴方向上的梯度相对较小。在进行参数更新的时候，让y轴方向上的梯度除以一个大的数，这样y轴更新的幅度就小。而x轴方向上的梯度除以一个小的数，这样x轴更新的幅度就大。从而实现了，减小了y轴方向上的更新步长，增大了x轴方向上的更新步长，使得算法能够更快的收敛。</p>
 <p><strong>Adagrad算法</strong>：是一个基于梯度的优化算法，它的主要功能是：它对不同的参数调整学习率，具体而言，对低频出现的参数进行大的更新，对高频出现的参数进行小的更新。因此，他很适合于处理稀疏数据。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/27126737" target="_blank" rel="noopener">AdaBoost</a>:结合多个个体学习器（弱学习器）从而获得精确率很高的学习器（强学习器）。</p>
 <h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p><strong>交叉熵损失</strong>：可以这样理解：<strong>使用了“估算”的编码后，得到的平均编码长度</strong>（可能不是最短的）。</p>
 <p>p是真实概率分布，q是你以为的概率分布（可能不一致）;你以 q 去编码，编码方案 log(1/q_i)可能不是最优的；于是，平均编码长度 = ∑ p_i *log(1/q_i)，就是交叉熵； 只有在估算的分布 q 完全正确时，平均编码长度才是最短的，交叉熵 = 熵。</p>
 <p><strong>最小二乘法</strong>：最小二乘的基本原则是：最优拟合直线应该是使各点到回归直线的距离和最小的直线，即平方和最小。</p>
 <p><img src="/assets/blogImg/%E5%B9%B3%E6%96%B9%E6%8D%9F%E5%A4%B1.png" alt></p>
 <p><code>Y-f(X)</code>表示的是残差，整个式子表示的是<strong>残差的平方和</strong>，而我们的目的就是最小化这个目标函数值。</p>
+<p><a href="https://www.jiqizhixin.com/articles/091202" target="_blank" rel="noopener">多分类SVM损失</a></p>
 <h2 id="代码实践-以人脸性别识别举例"><a href="#代码实践-以人脸性别识别举例" class="headerlink" title="代码实践(以人脸性别识别举例)"></a>代码实践(以人脸性别识别举例)</h2><h3 id="原始图片及其标签"><a href="#原始图片及其标签" class="headerlink" title="原始图片及其标签"></a>原始图片及其标签</h3><p><img src="/assets/blogImg/data_old.JPG" alt></p>
 <h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">copy_dataset_by_filename</span><span class="params">(in_src, out_src)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    数据分为训练集和测试集并存储到 out_src</span></span><br><span class="line"><span class="string">    训练 921 张角度脸（男女）</span></span><br><span class="line"><span class="string">    测试 230 张角度脸 93 男 137 女</span></span><br><span class="line"><span class="string">    训练和测试数据不重复，数据内部有人物重复，图片不重复</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 得到所有文件</span></span><br><span class="line">    all_file_names = os.listdir(in_src)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 筛选后的文件</span></span><br><span class="line">    file_names = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 文件名格式为CF0001_1101_00F.jpg</span></span><br><span class="line">    <span class="comment"># 判断 '2' 为 有缩放第二次测量</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> all_file_names:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> name[<span class="number">-12</span>] == <span class="string">'2'</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        file_names.append(name)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 随机获得 93个男和137个女的文件名集合</span></span><br><span class="line">    male_name_set, female_name_set = get_random_man_feman_file_name(</span><br><span class="line">        file_names, <span class="number">93</span>, <span class="number">137</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建目录</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(out_src):</span><br><span class="line">        os.mkdir(out_src)</span><br><span class="line">        os.mkdir(out_src + <span class="string">"train/"</span>)</span><br><span class="line">        os.mkdir(out_src + <span class="string">"test/"</span>)</span><br><span class="line"></span><br><span class="line">    index_train = <span class="number">0</span></span><br><span class="line">    index_test = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> file_names:</span><br><span class="line">        <span class="keyword">if</span> name <span class="keyword">in</span> male_name_set <span class="keyword">or</span> name <span class="keyword">in</span> female_name_set:</span><br><span class="line">            <span class="comment"># 复制</span></span><br><span class="line">            shutil.copyfile(in_src + name, out_src + <span class="string">"test/"</span> +</span><br><span class="line">                            name[<span class="number">1</span>] + <span class="string">"_"</span> + str(index_test) + <span class="string">".jpg"</span>)</span><br><span class="line">            index_test += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            shutil.copyfile(in_src + name, out_src + <span class="string">"train/"</span> +</span><br><span class="line">                            name[<span class="number">1</span>] + <span class="string">"_"</span> + str(index_train) + <span class="string">".jpg"</span>)</span><br><span class="line">            index_train += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
