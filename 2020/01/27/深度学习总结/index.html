@@ -19,9 +19,13 @@
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/%E6%A2%AF%E5%BA%A6%E4%BC%98%E5%8C%96.png">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/%E5%B9%B3%E6%96%B9%E6%8D%9F%E5%A4%B1.png">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/%E5%8D%8A%E8%87%AA%E5%8A%A8%E7%AE%97%E6%B3%95.JPG">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/U-Net%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%9D%9E%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95.JPG">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/U-Net%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95.JPG">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/U-Net%E6%A8%A1%E5%9E%8B.JPG">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/data_old.JPG">
 <meta property="og:image" content="http://yoursite.com/assets/blogImg/data_new.JPG">
-<meta property="og:updated_time" content="2020-02-18T12:23:56.542Z">
+<meta property="og:updated_time" content="2020-02-19T13:43:57.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadow&#39;s blog">
 <meta name="twitter:description" content="深度学习总结基本概念图像分割：目的是对图像中的不同目标进行分类，并确定其边界。 梯度爆炸：在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。 梯度消失：在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。 batch size，iteration，step，epoch： 一次 epoch 等于所有数据 forward + backward 后">
@@ -156,7 +160,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="深度学习总结"><a href="#深度学习总结" class="headerlink" title="深度学习总结"></a>深度学习总结</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>图像分割</strong>：目的是对图像中的不同目标进行分类，并确定其边界。</p>
+        <h1 id="深度学习总结"><a href="#深度学习总结" class="headerlink" title="深度学习总结"></a>深度学习总结</h1><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>图像分割</strong>：目的是对图像中的不同目标进行分类，并确定其边界。</p>
 <p><strong>梯度爆炸</strong>：在神经网络训练过程中，梯度变得越来越大使得神经网络权重疯狂更新。这时候可能会发现参数出现数值溢出。</p>
 <p><strong>梯度消失</strong>：在神经网络训练过程中，梯度变得越来越小以至于权重得不到更新。</p>
 <p><strong>batch size，iteration，step，epoch</strong>：</p>
@@ -165,7 +169,7 @@
 <p>应用于不同场景的深度学习模型具备一定的通用性，均可以从下述五个步骤来完成模型的构建和训练。</p>
 <ul>
 <li>数据处理：从本地文件或网络地址读取数据，并做预处理操作，如校验数据的正确性等。</li>
-<li>模型设计：完成网络结构的设计（模型要素 1），相当于模型的假设空间，即模型能够表达的关系集合。</li>
+<li>模型设计：完成网络结构的设计（模型要素 1，①改变传统网络的内部结构；②传统网络与机器学习算法相结合），相当于模型的假设空间，即模型能够表达的关系集合。</li>
 <li>训练配置：设定模型采用的寻解算法（模型要素 2），即优化器，以及学习率等超参数。</li>
 <li>训练过程：循环调用训练过程，每轮均包括前向计算 、损失函数（优化目标，模型要素 3）和后向传播这三个步骤。</li>
 <li>保存模型：将训练好的模型保存，以备预测/评估时调用。</li>
@@ -181,7 +185,7 @@
 <p><strong>自编码器(Auto-encoder)</strong>：是一种利用反向传播算法使得输出值等于输入值的神经网络，它先将输入压缩成潜在空间表征，然后通过这种表征来重构输出。</p>
 <p><strong>应用场景</strong>：自编码器的应用主要有两个方面，第一是数据去噪，第二是为进行可视化而降维。</p>
 <h3 id="深度学习在医学领域中的使用"><a href="#深度学习在医学领域中的使用" class="headerlink" title="深度学习在医学领域中的使用"></a>深度学习在医学领域中的使用</h3><p>深度神经网络很多结构模型都被应用在医学影像中，例如卷积神经网络(Convolutional Neural Networks, CNN) 、稀疏编码网络 (Sparse Coding, HSC) 、栈式自编码器 (Stacked Auto-Encoders , SAE) 、受限玻尔兹曼机 (Restricted Boltzmann Machines, RBM) 、深度信念网络 (Deep Belief Networks ,DBN) 等 。</p>
-<p>在医学图像分割中主要采用基于全卷积网络的框架。其最大的改进之处在于，把卷积神经网络最后的全连接层换成卷积层，输出的是一张已经做好标记的图片。全卷积网络能够从图像级别的分类进一步延伸到像素级别的分类。U-net 是一个在医学图像处理领域应用很广泛的全卷积网络，输入和输出都是图像，没有全连接层。能够同时结合底层和高层信息，底层信息有助于提高精度，高层信息用来提取复杂特征。</p>
+<p>对于分类问题有两种思路，第一，对原有的经典网络进行改进；第二，通过机器学习算法与神经网络相结合。</p>
 <p>采用深度卷积神经网络( d-CNN) 用于镰状细胞贫血症中红细胞的分类，其过程主要包括以下 4个步骤: ( 1) 分层 ＲBC 图像提取; ( 2) ＲBC 图像尺寸标准化;( 3) 基于 d-CNN 的 ＲBC 分类; ( 4) ＲBC 形状因子计算。该项研究将红细胞形态分为 8 个类别，即盘形红细胞、锯齿形红细胞、泪滴形红细胞、颗粒形红细胞、卵圆形红细胞、网织红细胞、镰形红细胞、口形红细胞。结果显示使用深度卷积神经网络 对 8 种 红 细 胞 进 行 分 类 训 练 的 平 均 准 确 率 为91．01%。</p>
 <p>以 Alex Net 和 Le Net 为网络原型构建卷积神经网络训练平台，并对其进行改进获得一种轻量高效的新结构———CCNet( cell classification net) ，其在模型大小、训练用时和分类用时上分别仅为 Le Net 的 1/1 000、1/3 和 1/30。结果显示采用CCNet 对 979 张白细胞图像进行 5 分类的最佳分类准确率为99．18%。</p>
 <p>急性淋巴细胞白血病( ALL) 和300 幅 急性髓细胞白血病(AML) 图像进行分割提取特征后，分别利用神经网络滤波算法和贝叶斯算法训练 MLP( multi-layer perceptron) 神经网络和简化模糊 AＲTMAP( simplified fuzzy AＲTM) 神经网络，将细胞分为原始淋巴细胞、原始粒细胞和正常细胞。结果显示分类准确率均在 90%以上，其中贝叶斯算法训练 MLP 结果最佳，准确率为 95．7%。</p>
@@ -214,8 +218,38 @@
 <p>p是真实概率分布，q是你以为的概率分布（可能不一致）;你以 q 去编码，编码方案 log(1/q_i)可能不是最优的；于是，平均编码长度 = ∑ p_i *log(1/q_i)，就是交叉熵； 只有在估算的分布 q 完全正确时，平均编码长度才是最短的，交叉熵 = 熵。</p>
 <p><strong>最小二乘法</strong>：最小二乘的基本原则是：最优拟合直线应该是使各点到回归直线的距离和最小的直线，即平方和最小。</p>
 <p><img src="/assets/blogImg/%E5%B9%B3%E6%96%B9%E6%8D%9F%E5%A4%B1.png" alt></p>
-<p><code>Y-f(X)</code>表示的是残差，整个式子表示的是<strong>残差的平方和</strong>，而我们的目的就是最小化这个目标函数值。</p>
+<p>Y-f(X) 表示的是残差，整个式子表示的是<strong>残差的平方和</strong>，而我们的目的就是最小化这个目标函数值。</p>
 <p><a href="https://www.jiqizhixin.com/articles/091202" target="_blank" rel="noopener">多分类SVM损失</a></p>
+<h3 id="改进U-Net进行图像分割"><a href="#改进U-Net进行图像分割" class="headerlink" title="改进U-Net进行图像分割"></a>改进U-Net进行图像分割</h3><p>丰富的形态学统计信息是腺癌早期诊断的重要依据，精确的腺体分割是获得可靠的形态学统计信息的一个关键的先决条件。目前，深度卷积网络应用于腺体图像分割存在三大难点，包括特征分辨率不断降低的问题、待分割的腺体细胞存在多个尺度的问题和深度卷积网络固有的不变性问题。</p>
+<p>半自动分割算法主要利用图像中某些相同或者相近的特征进行目标区域的分割。</p>
+<p><img src="/assets/blogImg/%E5%8D%8A%E8%87%AA%E5%8A%A8%E7%AE%97%E6%B3%95.JPG" alt></p>
+<p>第一种分割方法是将传统<strong>U-Net模型</strong>(基于CNN的像素标签预测算法)和<strong>全连接条件随机场</strong>相结合的非端到端改进方法。第二种分割方法是改变传统U-Net模型的内部结构的端到端改进方法。</p>
+<p><strong>非端到端改进方法</strong>：通过将全连接条件随机场(CRF)直接作用于传统U-Net模型输出的分割图，将目标边缘精细化。</p>
+<p><img src="/assets/blogImg/U-Net%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%9D%9E%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95.JPG" alt></p>
+<p><strong>端到端改进方法</strong>：通过添加空洞残差模块、空洞金字塔池模块和注意力模块，对U-Net模型内部进行改进，和前一个改进方法相比，不仅训练简单，而且分割过程更快，得到的分割结果更精确。</p>
+<p>实验结果显示，非端到端分割方法的分割性能相对于其他优秀模型没有突出性的优势，而端到端分割方法则表现了比其他模型更为精细的分割结果。</p>
+<p><img src="/assets/blogImg/U-Net%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95.JPG" alt></p>
+<p><strong>残差模块</strong>：U-Net 只进行了10次卷积操作，因此不能获得目标的深层特征信息。使用残差模块代替原网络中普通卷积，使梯度信息能较好地传递到深层网络。</p>
+<p><strong>空洞残差模块</strong>：最大池化层会导致浅层信息的丢失，因此，为了减弱浅层信息丢失的影响，在深层特征提取部分使用空洞残差模块代替普通卷积。相比传统卷积操作，<strong>空洞卷积</strong>能在不增加参数的情况下得到较大的感受野，并得到和输入大小相同的特征图。</p>
+<p><strong>空洞金字塔池模块</strong>：因为空洞卷积特征图中的所有神经元共享着同一种感受野尺寸，这就意味着分割掩码产生过程中只使用了一种尺度的特征。多尺度信息可以帮助解决类别模棱两可的问题。因此，在最后一层特征提取时使用空洞金字塔池模块。可以结合不同尺度的空洞卷积产生的特征图，使输出特征图的神经元包含了多种尺度的感受野，实现多尺度腺体信息的融合，并提高分割精度。</p>
+<p><strong>注意力模块</strong>：通过给特征图添加注意力权重，使网络减少对背景像素的关注，加快对腺体特征的学习。</p>
+<p><strong>多特征层融合输出</strong>：深度卷积网络分割目标只有一个大致位置，难以得到精确的目标轮廓。为了改善该问题，将扩展路径的各个尺度的特征层通过深度可分离卷积恢复到原图大小，再通过通道融合进行输出。</p>
+<p><strong>预处理</strong>：灰度化减小图片占用的内存空间。几何变换对图像进行校正。图像增强放大分割目标和背景的差别，增强目标的边缘信息。超像素降低后续分割过程的运算量。</p>
+<p><strong>网络模型</strong>：传统U-Net是对FCN的结构进行修改和扩展，使其只要较少的图像就能进行训练，并且得到更精确的分割结果。U-Net模型由两部分构成，一是收缩路径，二是扩展路径，由于这两条路径对称且组成一个U字，使得该模型被称为U-Net模型。</p>
+<p><strong>收缩路径</strong>：减少空间信息，同时增加特征信息。</p>
+<p><strong>扩展路径</strong>：模型的扩展路径也是一个卷积网络，包含重复的卷积层，但和收缩路径不同是的，该路径的卷积层后跟着上采样层、特征图融合操作和随机失活层。该路径的作用是通过融合低级特征信息来增加目标细节信息，最后得到原图大小的分割掩模。</p>
+<p><img src="/assets/blogImg/U-Net%E6%A8%A1%E5%9E%8B.JPG" alt></p>
+<ol>
+<li><p>输入样本。模型设定输入图像大小为572x572，图像为单通道的灰度图。</p>
+</li>
+<li><p>图像特征提取。收缩路径的特征提取首先对输入的图像执行3x3的卷积运算并实现通道扩充，接着将卷积后的多通道特征图通过非线性单元，获得非线性输出，最后对特征图进行2x2的最大池化操作，将特征图缩小为原来的一半。重复上述操作，直到获得1/8原图大小的特征图。</p>
+</li>
+<li><p>特征图还原。首先将1/8原图大小的特征图经过上采样恢复到1/4原图大小，接着通过快捷连接，将收缩路径中相同大小的特征图与上采样后的特征图进行通道合并，然后用3x3的卷积核对其进行特征融合和通道缩减，获得一组信息更丰富的特征图。重复上述操作，直到获得和原图一样大小的64维特征图。</p>
+</li>
+<li><p>分割掩模生成。对还原后的特征图执行1x1的卷积运算，将64维的特征向量映射到输出层，得到二值分割图。</p>
+<p>深度卷积网络应用于图像分割的一个难点是，需要平衡目标分割精度和分类 准确度之间的关系，模型越深、池化层越多则顶层神经元的感受野就越大，也就使得目标分类越准确，但也造成空间细节的丢失，使输出目标的轮廓相对平滑，不够清晰。</p>
+</li>
+</ol>
 <h2 id="代码实践-以人脸性别识别举例"><a href="#代码实践-以人脸性别识别举例" class="headerlink" title="代码实践(以人脸性别识别举例)"></a>代码实践(以人脸性别识别举例)</h2><h3 id="原始图片及其标签"><a href="#原始图片及其标签" class="headerlink" title="原始图片及其标签"></a>原始图片及其标签</h3><p><img src="/assets/blogImg/data_old.JPG" alt></p>
 <h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">copy_dataset_by_filename</span><span class="params">(in_src, out_src)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    数据分为训练集和测试集并存储到 out_src</span></span><br><span class="line"><span class="string">    训练 921 张角度脸（男女）</span></span><br><span class="line"><span class="string">    测试 230 张角度脸 93 男 137 女</span></span><br><span class="line"><span class="string">    训练和测试数据不重复，数据内部有人物重复，图片不重复</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 得到所有文件</span></span><br><span class="line">    all_file_names = os.listdir(in_src)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 筛选后的文件</span></span><br><span class="line">    file_names = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 文件名格式为CF0001_1101_00F.jpg</span></span><br><span class="line">    <span class="comment"># 判断 '2' 为 有缩放第二次测量</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> all_file_names:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> name[<span class="number">-12</span>] == <span class="string">'2'</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        file_names.append(name)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 随机获得 93个男和137个女的文件名集合</span></span><br><span class="line">    male_name_set, female_name_set = get_random_man_feman_file_name(</span><br><span class="line">        file_names, <span class="number">93</span>, <span class="number">137</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建目录</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(out_src):</span><br><span class="line">        os.mkdir(out_src)</span><br><span class="line">        os.mkdir(out_src + <span class="string">"train/"</span>)</span><br><span class="line">        os.mkdir(out_src + <span class="string">"test/"</span>)</span><br><span class="line"></span><br><span class="line">    index_train = <span class="number">0</span></span><br><span class="line">    index_test = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> file_names:</span><br><span class="line">        <span class="keyword">if</span> name <span class="keyword">in</span> male_name_set <span class="keyword">or</span> name <span class="keyword">in</span> female_name_set:</span><br><span class="line">            <span class="comment"># 复制</span></span><br><span class="line">            shutil.copyfile(in_src + name, out_src + <span class="string">"test/"</span> +</span><br><span class="line">                            name[<span class="number">1</span>] + <span class="string">"_"</span> + str(index_test) + <span class="string">".jpg"</span>)</span><br><span class="line">            index_test += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            shutil.copyfile(in_src + name, out_src + <span class="string">"train/"</span> +</span><br><span class="line">                            name[<span class="number">1</span>] + <span class="string">"_"</span> + str(index_train) + <span class="string">".jpg"</span>)</span><br><span class="line">            index_train += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
@@ -307,6 +341,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/02/19/深度学习总结 V2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2019/09/03/原型继承链Demo/" id="article-nav-older" class="article-nav-link-wrap">

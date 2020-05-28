@@ -146,6 +146,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-使用v-for遇到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用v-for碰到的问题"><a href="#使用v-for碰到的问题" class="headerlink" title="使用v-for碰到的问题"></a>使用v-for碰到的问题</h1><h2 id="vue-require-v-for-key-Elements-in-iteration-expect-to-have-‘v-bind-key’-directives"><a href="#vue-require-v-for-key-Elements-in-iteration-expect-to-have-‘v-bind-key’-directives" class="headerlink" title="[vue/require-v-for-key] Elements in iteration expect to have ‘v-bind:key’ directives"></a>[vue/require-v-for-key] Elements in iteration expect to have ‘v-bind:key’ directives</h2><p><img src="/assets/blogImg/v-forkeng.png" alt></p>
+<p>原因：Vue 2.2.0+的版本里，当在组件中使用v-for时，key是必须的</p>
+<p>解决方法：只要在div后面加上<code>:key=item</code>即可。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Promise的由来" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Promise的产生"><a href="#Promise的产生" class="headerlink" title="Promise的产生"></a>Promise的产生</h1><h2 id="为什么要有Promise"><a href="#为什么要有Promise" class="headerlink" title="为什么要有Promise"></a>为什么要有Promise</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user;</span><br><span class="line"><span class="comment">// fetch all users</span></span><br><span class="line">$.<span class="keyword">get</span>('https://api.github.com/users',data=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fetched all users'</span>);</span><br><span class="line">    user = data[<span class="number">0</span>].login;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// fetch the first user's reppos</span></span><br><span class="line">$.<span class="keyword">get</span>(`https://api.github.com/users/$&#123;user&#125;/repos<span class="string">`,data=&gt;&#123;</span></span><br><span class="line"><span class="string">    console.log('fetch user repos');</span></span><br><span class="line"><span class="string">    console.log(data);</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码原意是想获得第一个用户之后再获得此用户的所有仓库。但是由于这些方法都是异步的，因此不能保证代码的执行顺序。要想第一个方法先执行完再执行第二个方法，可以将第二个方法写在第一个函数的方法体中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fetch all users</span></span><br><span class="line">$.<span class="keyword">get</span>('https://api.github.com/users',data=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fetched all users'</span>);</span><br><span class="line">    user = data[<span class="number">0</span>].login;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// fetch the first user's reppos</span></span><br><span class="line">    $.<span class="keyword">get</span>(`https://api.github.com/users/$&#123;user&#125;/repos<span class="string">`,data=&gt;&#123;</span></span><br><span class="line"><span class="string">        console.log('fetch user repos');</span></span><br><span class="line"><span class="string">        console.log(data);</span></span><br><span class="line"><span class="string">    &#125;);</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+
+<p>同理，若此此时还有第三个方法要在第二个方法执行完的前提下开始执行，那么，就要在第二个方法的回调函数中添加第三个方法，这样代码的嵌套层次就会变多，容易产生回调函数地狱，不利于代码的阅读。因此，就有了Promise来解决这样的问题。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-runtime-compiler和runtime-only" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -522,54 +617,6 @@
 
 
   
-    <article id="post-互联网协议学习记录(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="五层模型"><a href="#五层模型" class="headerlink" title="五层模型"></a>五层模型</h1><p>由于历史原因，OSI 模型的过于注重理论性，相反，TCP/IP 模型已经广泛使用，不过，从实质上讲，TCP/IP 只有最上面三层，因为最下面的网络接口层基本上和一般的通信链路在功能上没有多大差别。因此在学习时，采用折中的方法，采用五层协议的体系结构。<br><img src="/assets/blogImg/five_layers.png" alt="五层参考模型"></p>
-<h2 id="各层职责"><a href="#各层职责" class="headerlink" title="各层职责"></a>各层职责</h2><h3 id="实体层"><a href="#实体层" class="headerlink" title="实体层"></a>实体层</h3><p>电脑要组网，第一件事就是把各台电脑通过一些物理手段连接起来。实体层规定了网络的一些电气特性，负责传输比特流。</p>
-<h3 id="链接层"><a href="#链接层" class="headerlink" title="链接层"></a>链接层</h3><p>为了能够解析收到的比特流，必须在发送和接收时对比特流做一些处理。对于接、收双方来讲，必须规定多少个电信号算一组，每个信号位有何意义。因此，诞生了以太网协议。以太网协议规定一组电信号构成一个数据包，叫做”帧”。每一帧分成两个部分：标头和数据。接收数据时，标头中的一些控制信息使接收端能够知道一个帧从哪个比特开始和从哪个比特结束。<br>标头中的发送者和接收者是如何标识呢？以太网规定，连入网络的所有设备，都必须具有”网卡”接口，数据包必须是从一块网卡，传送到另一块网卡。网卡的地址，就是数据包的发送地址和接收地址，这叫做 MAC 地址。</p>
-        
-          <a class="article-more-a" href="/2019/08/08/互联网协议学习记录(一)/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-互联网协议学习记录(二)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -577,53 +624,6 @@
       
         <h1 id="在浏览器的地址栏输入-www-bilibili-com-到页面显示的过程"><a href="#在浏览器的地址栏输入-www-bilibili-com-到页面显示的过程" class="headerlink" title="在浏览器的地址栏输入 www.bilibili.com 到页面显示的过程"></a>在浏览器的地址栏输入 <a href="http://www.bilibili.com" target="_blank" rel="noopener">www.bilibili.com</a> 到页面显示的过程</h1><p>当我们打开浏览器输入一串 url，比如：<a href="https://www.bilibili.com" target="_blank" rel="noopener">bilibili</a>，这时我们想要访问 B 站，首先双方要建立连接。但是我们只有自己 IP 和 MAC 地址，那么如何得到 B 站的 IP 地址？这时，DNS 协议可以帮助我们的到 B 站的 IP，通过向 DNS 服务器发送数据包，DNS 服务器做出响应，返回目标域名的 IP。<br>得到 B 站的 IP 后，我们要判断它是否和我们在同一个子网中，如果是，就采用 ARP 广播的方式得到它的 MAC 地址，如果不是，我们就必须通过网关转发，这时，接收方的 MAC 地址就是网关的 MAC 地址。<br>经过多个网关的转发，B 站的服务器收到数据包，读出里面的 HTTP 请求，然后做出响应，再用 TCP 协议发回来。<br>本机收到 HTTP 响应以后，就可以将网页显示出来，完成一次网络通信。</p>
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-初次安装WSL遇到的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="初次安装WSL遇到的坑"><a href="#初次安装WSL遇到的坑" class="headerlink" title="初次安装WSL遇到的坑"></a>初次安装WSL遇到的坑</h1><h2 id="unable-to-locate-packge"><a href="#unable-to-locate-packge" class="headerlink" title="unable to locate packge"></a>unable to locate packge</h2><p>解决方法：<br><br>一开始是选择<a href="https://mirror.tuna.tsinghua.edu.cn/help/debian/" target="_blank" rel="noopener">清华镜像源</a>,来替换官方源。<br><img src="/assets/blogImg/tuna.png" alt>但是，发现清华提供的都是 https 源，无法拉取，后来才有 163 的 http 源才解决了下载包的问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.163.com/debian/ stretch main non-free contrib</span><br><span class="line">deb http://mirrors.163.com/debian/ stretch-updates main non-free contrib</span><br><span class="line">deb http://mirrors.163.com/debian/ stretch-backports main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian/ stretch main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian/ stretch-updates main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian/ stretch-backports main non-free contrib</span><br><span class="line">deb http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib</span><br><span class="line">deb-src http://mirrors.163.com/debian-security/ stretch/updates main non-free contrib</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/08/08/初次安装WSL遇到的坑/#more">more >></a>
-        
       
 
       
